@@ -1,0 +1,22 @@
+{
+  "name": "farming-optimizer",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "gatsby": "^2.21.21",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-typescript": "^2.4.2",
+    "gatsby-source-filesystem": "^2.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7"
+  }
+}
