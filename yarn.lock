@@ -6207,8 +6207,8 @@ __metadata:
     gatsby-plugin-react-helmet: ^3.3.1
     gatsby-plugin-typescript: ^2.4.2
     gatsby-source-filesystem: ^2.3.1
-    react: ^16.13.1
-    react-dom: ^16.13.1
+    react: experimental
+    react-dom: experimental
     react-helmet: ^6.0.0
     typescript: ^3.8.3
   languageName: unknown
@@ -12533,17 +12533,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.13.1":
-  version: 16.13.1
-  resolution: "react-dom@npm:16.13.1"
+"react-dom@npm:experimental":
+  version: 0.0.0-experimental-33c3af284
+  resolution: "react-dom@npm:0.0.0-experimental-33c3af284"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
-    prop-types: ^15.6.2
-    scheduler: ^0.19.1
+    scheduler: 0.0.0-experimental-33c3af284
   peerDependencies:
-    react: ^16.13.1
-  checksum: 3/fb5c3ad41360c6a8674f33916aa895d05e79d063d31a6963074220c1cda9e07e880799d01670b4ebd570b4d3457584f13cc898b5033a05641e8e801f5611607e
+    react: 0.0.0-experimental-33c3af284
+  checksum: 3/4d9c66f2b1323873bf2c68b589d58d8a415eee77dfb5841223919dbddef9c9d7a89e1a2d48445c57b9482a5a2b41af5dbda974aae32af6e1c7f65d41ca5d06c6
   languageName: node
   linkType: hard
 
@@ -12649,7 +12648,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react@npm:^16.13.1, react@npm:^16.8.0":
+"react@npm:^16.8.0":
   version: 16.13.1
   resolution: "react@npm:16.13.1"
   dependencies:
@@ -12657,6 +12656,16 @@ fsevents@~2.1.2:
     object-assign: ^4.1.1
     prop-types: ^15.6.2
   checksum: 3/13dcc9ba8a7521ecc3d7e69998dbc5703ae9515308d06a94a474ad34b42f1fc109372265e924a8c9b11d20fa1828407c290b8f61617c36734c4ca907ae7e5f45
+  languageName: node
+  linkType: hard
+
+"react@npm:experimental":
+  version: 0.0.0-experimental-33c3af284
+  resolution: "react@npm:0.0.0-experimental-33c3af284"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: 3/b81525e6114c5eb16f41d70c2216b096cd7b516a1955ae516caef29d1ffa41b20af14df22a61742990ecd8286e18f7468cf0030ea8f96ab7dbc14250a12e7e54
   languageName: node
   linkType: hard
 
@@ -13351,6 +13360,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"scheduler@npm:0.0.0-experimental-33c3af284":
+  version: 0.0.0-experimental-33c3af284
+  resolution: "scheduler@npm:0.0.0-experimental-33c3af284"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: 3/bb69a8585ebc423c93c376d38a1e6d458a4be85cb9850a3f2ddf31a448037f1b7dc1574e55a60f286a85cc125717b0d271c3653753ff27688a7063960ccc7baa
+  languageName: node
+  linkType: hard
+
 "scheduler@npm:^0.18.0":
   version: 0.18.0
   resolution: "scheduler@npm:0.18.0"
@@ -13358,16 +13377,6 @@ fsevents@~2.1.2:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: 3/007678c559669029a5f8a029022548c2f39258b8087d1da0a3f5c5360abf3aa2794a87f56998151432f48910eca53331206cd712b751188623ca3d1bcab38b9f
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.19.1":
-  version: 0.19.1
-  resolution: "scheduler@npm:0.19.1"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: 3/804f990b9f370cca6d42b65f3cba2cc2bfed4973ee5623bed1ea36a6627842db8c891e2e5ac003f06f9ee892d1d3396921e27fa077346caf0213af05776e8dee
   languageName: node
   linkType: hard
 
