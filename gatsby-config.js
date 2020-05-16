@@ -6,6 +6,7 @@ module.exports = {
     description: '',
   },
   plugins: [
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -15,5 +16,11 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-astroturf',
+      options: {
+        extension: '.module.scss',
+      },
+    },
   ],
 };

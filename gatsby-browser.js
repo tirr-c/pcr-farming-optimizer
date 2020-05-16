@@ -1,7 +1,9 @@
 // gatsby-browser.js
-const ReactDOM = require('react-dom');
+import ReactDOM from 'react-dom';
 
-exports.replaceHydrateFunction = () => {
+import './src/reset.css';
+
+export function replaceHydrateFunction() {
   return (element, container, callback) => {
     ReactDOM.unstable_createRoot(container, {
       hydrate: process.env.NODE_ENV === 'production',
