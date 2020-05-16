@@ -6210,6 +6210,7 @@ __metadata:
     react: experimental
     react-dom: experimental
     react-helmet: ^6.0.0
+    regenerator-runtime: ^0.13.5
     typescript: ^3.8.3
   languageName: unknown
   linkType: soft
@@ -12825,7 +12826,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.4":
+"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.5":
   version: 0.13.5
   resolution: "regenerator-runtime@npm:0.13.5"
   checksum: 3/8d8ee0eca26e0491085033caf2b1b95379c4db21e38d79cde52bbd4014a3865eee26ec0f4f958682e8600f185f2f5dbcd8c6685b9b9261639767929c19b5bcd2

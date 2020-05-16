@@ -13,6 +13,7 @@
     "react": "experimental",
     "react-dom": "experimental",
     "react-helmet": "^6.0.0",
+    "regenerator-runtime": "^0.13.5",
     "typescript": "^3.8.3"
   },
   "devDependencies": {
