@@ -6342,6 +6342,9 @@ __metadata:
     gatsby-plugin-sass: ^2.3.1
     gatsby-plugin-typescript: ^2.4.2
     gatsby-source-filesystem: ^2.3.1
+    mobx: ^5.15.4
+    mobx-react-lite: ^2.0.7
+    mobx-state-tree: ^3.16.0
     node-sass: ^4.14.1
     react: experimental
     react-dom: experimental
@@ -10674,6 +10677,32 @@ fsevents@~2.1.2:
   bin:
     mkdirp: bin/cmd.js
   checksum: 3/9dd9792e891927b14ca02226dbe1daeb717b9517a001620d5e2658bbc72c5e4f06887b6cbcbb60595fa5a56e701073cf250f1ed69c1988a6b89faf9fd6a4d049
+  languageName: node
+  linkType: hard
+
+"mobx-react-lite@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "mobx-react-lite@npm:2.0.7"
+  peerDependencies:
+    mobx: ^4.0.0 || ^5.0.0
+    react: ^16.8.0
+  checksum: 3/c9fef956ae25a9616ec9d182ded1fe84f02043923b8db90987fa3c43e2ee33f091d78d587a4eaeb6f2b55899948bd0127a05f33e3373e0a08c01be4fba5a282b
+  languageName: node
+  linkType: hard
+
+"mobx-state-tree@npm:^3.16.0":
+  version: 3.16.0
+  resolution: "mobx-state-tree@npm:3.16.0"
+  peerDependencies:
+    mobx: ">=4.8.0 <5.0.0 || >=5.8.0 <6.0.0"
+  checksum: 3/b79c4387c628c6c7043b04f717d297444a227c0342a16f36682caac87258096b7288b18163108bf8f6f7aa944fcfcb9c87d0babc143e2d3c59b024b85ec1e4d5
+  languageName: node
+  linkType: hard
+
+"mobx@npm:^5.15.4":
+  version: 5.15.4
+  resolution: "mobx@npm:5.15.4"
+  checksum: 3/4f34a46414e9f0c6f707b68d92224078da74c0796f1163d1b97a1534474d080e41ab7d0aff2636c975c5ccb5164bc265bf2c558c296dd1ca89315603a327edea
   languageName: node
   linkType: hard
 
