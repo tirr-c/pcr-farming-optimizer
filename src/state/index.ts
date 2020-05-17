@@ -26,7 +26,7 @@ export const Unit = types
       if (idx < 0 || idx >= 6) {
         return;
       }
-      self.equipFrom[idx] = val;
+      self.equipTo[idx] = val;
     }
     return {
       setRankFrom,

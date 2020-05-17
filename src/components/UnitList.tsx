@@ -18,16 +18,10 @@ const UnitListWrapper = styled('ul')`
 `;
 
 export default function UnitList() {
-  const unitData = units.get().$data;
-  const unitDataFiltered = unitData.filter((unit: any) => {
-    return (
-      unit.id[0] === '1' &&
-      unit.equips.every((equip: string[]) => equip.join('') !== '000000')
-    );
-  });
+  const unitData = units.get();
   return (
     <UnitListWrapper>
-      {unitDataFiltered.map((unit: any) => {
+      {[...unitData.values()].map(unit => {
         return (
           <UnitItem
             key={unit.id}
