@@ -22,5 +22,5 @@ const units = new RemoteResource(async () => {
 export default units;
 
 export function getEquipsForRank(id: string, rank: number): string[] | null {
-  return units.get().get(id)?.equips[rank] || null;
+  return units.get().get(id)?.equips[rank - 1] || null;
 }

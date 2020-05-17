@@ -2,6 +2,7 @@ import styled from 'astroturf';
 import React from 'react';
 
 const Wrapper = styled('label')<{ size: 'xsmall' | 'small' | 'medium' | 'large' }>`
+  display: block;
   position: relative;
 
   > input {

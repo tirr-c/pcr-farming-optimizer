@@ -24,6 +24,13 @@ const EquipGrid = styled('ul')`
   gap: 0;
 `;
 
+const RequiredEquips = styled('div')`
+  flex: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 interface Props {
   unit: Instance<typeof Unit>;
 }
@@ -31,7 +38,8 @@ interface Props {
 export default function UnitEquips(props: Props) {
   const { unit } = props;
   const id = useObserver(() => unit.id);
-  const name = units.get().get(id)?.name ?? '';
+  const unitData = units.get();
+  const name = unitData.get(id)?.name ?? '';
   const equipDataFrom = useObserver(() => {
     const equipIds = getEquipsForRank(unit.id, unit.rankFrom) || [];
     return equipIds.map((id, idx) => ({
@@ -46,6 +54,7 @@ export default function UnitEquips(props: Props) {
       active: unit.equipTo[idx],
     }));
   });
+  const requiredEquips = useObserver(() => unit.requiredEquipsWithResource(unitData));
   return (
     <Wrapper>
       <UnitIcon unitId={id} name={name} rarity={1} active size="medium" />
@@ -73,6 +82,17 @@ export default function UnitEquips(props: Props) {
           />
         ))}
       </EquipGrid>
+      <RequiredEquips>
+        {requiredEquips.map((id, idx) => (
+          <EquipIcon
+            key={`${idx}-${id}`}
+            id={id}
+            name=""
+            active
+            size="xsmall"
+          />
+        ))}
+      </RequiredEquips>
     </Wrapper>
   );
 }
