@@ -36,11 +36,11 @@ function UnitList() {
       unit.equips.every((equip: string[]) => equip.join('') !== '000000')
     );
   });
-  const [checked, toggleId] = React.useReducer(
-    (state: Record<string, boolean>, id: string) => {
+  const [checked, setChecked] = React.useReducer(
+    (state: Record<string, boolean>, action: { id: string; checked: boolean }) => {
       return {
         ...state,
-        [id]: !state[id],
+        [action.id]: action.checked,
       };
     },
     unitDataFiltered,
@@ -56,7 +56,7 @@ function UnitList() {
             name={unit.name}
             rarity={1}
             active={checked[unit.id]}
-            onClick={() => toggleId(unit.id)}
+            onChange={value => setChecked({ id: unit.id, checked: value })}
           />
         );
       })}

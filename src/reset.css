@@ -10,3 +10,8 @@ ol, ul {
 li {
   list-style: none;
 }
+
+input {
+  margin: 0;
+  padding: 0;
+}

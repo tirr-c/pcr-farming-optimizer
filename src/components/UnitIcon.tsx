@@ -1,23 +1,22 @@
 import styled from 'astroturf';
 import React from 'react';
 
-const Wrapper = styled('div')<{ size?: 'small' | 'medium' | 'large', active?: boolean }>`
+const Wrapper = styled('label')<{ size?: 'small' | 'medium' | 'large' }>`
   position: relative;
 
-  &::after {
+  > input {
+    appearance: none;
     display: block;
-    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
     background-color: rgba(black, 0.5);
-  }
 
-  &.active::after {
-    display: none;
+    &:checked {
+      background-color: transparent;
+    }
   }
 
   $base-width: 128px;
@@ -28,14 +27,14 @@ const Wrapper = styled('div')<{ size?: 'small' | 'medium' | 'large', active?: bo
     @if $name == 'small' {
       width: $base-width * $scale;
       height: $base-width * $scale;
-      &::after {
+      > input {
         border-radius: $base-radius * $scale;
       }
     } @else {
       &.size-#{$name} {
         width: $base-width * $scale;
         height: $base-width * $scale;
-        &::after {
+        > input {
           border-radius: $base-radius * $scale;
         }
       }
@@ -54,17 +53,22 @@ interface Props {
   rarity: number;
   size?: 'small' | 'medium' | 'large';
   active?: boolean;
-  onClick?(): void;
+  onChange?(active: boolean): void;
 }
 
 export default function UnitIcon(props: Props) {
-  const { unitId, name, rarity, size, active, onClick } = props;
+  const { unitId, name, rarity, size, active, onChange } = props;
   const rarityFactor = [, 1, 1, 3, 3, 3, 6][rarity] ?? 1;
   const iconId = String(Number(unitId) + rarityFactor * 10).padStart(6, '0');
   const src = new URL(`/icons/unit/${iconId}.png`, 'https://ames-static.tirr.dev');
+
+  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e.target.checked);
+  }, [onChange]);
   return (
-    <Wrapper size={size} active={active} onClick={onClick}>
+    <Wrapper size={size}>
       <Icon alt={name} src={src.toString()} />
+      <input type="checkbox" checked={active} onChange={handleChange} />
     </Wrapper>
   );
 }
