@@ -28,8 +28,7 @@ const Title = styled('h2')<{ open?: boolean }>`
 `;
 
 const UnitListWrapper = styled('ul')<{ open?: boolean }>`
-  max-width: 64px * 8 + 8px * 7;
-  margin: 0 auto;
+  justify-content: center;
   grid-template-columns: repeat(auto-fill, 64px);
   grid-auto-rows: 64px;
   grid-gap: 8px;

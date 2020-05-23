@@ -18,6 +18,7 @@ const EquipGrid = styled('ul')`
   display: grid;
   max-width: 48px * 10;
   margin: 0 auto;
+  justify-content: center;
   grid-template-columns: repeat(auto-fill, 48px);
   grid-auto-rows: 48px;
   grid-gap: 0;

@@ -17,7 +17,7 @@ const Ui = styled('main')`
   grid-gap: 16px;
   gap: 16px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1200px + 16px * 2) {
     grid-template:
       'a c'
       'b c' 1fr
@@ -25,7 +25,7 @@ const Ui = styled('main')`
   }
 
   @media (max-width: 1000px) {
-    grid-template: none / auto;
+    grid-template: 'a' 'b' 'c' / 100%;
     grid-auto-rows: auto;
   }
 
