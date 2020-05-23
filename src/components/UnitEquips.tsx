@@ -11,6 +11,9 @@ import UnitIcon from './UnitIcon';
 
 const Wrapper = styled('li')`
   display: flex;
+  align-items: flex-start;
+  max-width: 600px;
+  margin: 0 auto;
   > * + * {
     margin-left: 8px;
   }
