@@ -2,8 +2,7 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: '',
-    description: '',
+    title: 'PriconneR Farming Optimizer',
   },
   plugins: [
     'gatsby-plugin-sass',

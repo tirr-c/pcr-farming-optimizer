@@ -7,9 +7,11 @@ import { useStateContext } from '../state';
 import UnitEquips from './UnitEquips';
 
 const Wrapper = styled('ul')`
-  > * + * {
-    margin-top: 12px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
+  grid-gap: 16px;
+  gap: 16px;
 `;
 
 export default function UnitEquipList() {

@@ -38,6 +38,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:16.9.7"
       ],
       [
+        "@types/react-helmet",
+        "npm:6.0.0"
+      ],
+      [
         "@yarnpkg/pnpify",
         "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.0.0-rc.22"
       ],
@@ -115,6 +119,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/react", "npm:16.9.34"],
             ["@types/react-dom", "npm:16.9.7"],
+            ["@types/react-helmet", "npm:6.0.0"],
             ["@yarnpkg/pnpify", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.0.0-rc.22"],
             ["astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.10.4"],
             ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],
@@ -2232,6 +2237,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-react-dom-npm-16.9.7-ba86251551-3.zip/node_modules/@types/react-dom/",
           "packageDependencies": [
             ["@types/react-dom", "npm:16.9.7"],
+            ["@types/react", "npm:16.9.34"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/react-helmet", [
+        ["npm:6.0.0", {
+          "packageLocation": "./.yarn/cache/@types-react-helmet-npm-6.0.0-4117250c21-3.zip/node_modules/@types/react-helmet/",
+          "packageDependencies": [
+            ["@types/react-helmet", "npm:6.0.0"],
             ["@types/react", "npm:16.9.34"]
           ],
           "linkType": "HARD",
@@ -7448,6 +7463,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["farming-optimizer", "workspace:."],
             ["@types/react", "npm:16.9.34"],
             ["@types/react-dom", "npm:16.9.7"],
+            ["@types/react-helmet", "npm:6.0.0"],
             ["@yarnpkg/pnpify", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.0.0-rc.22"],
             ["astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.10.4"],
             ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],

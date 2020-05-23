@@ -24,6 +24,9 @@ export default function BaseIngredientList() {
     [...rootState.units.values()]
       .flatMap(unit => unit.requiredEquipsWithResource(unitData))
   ));
+  if (requiredEquips.length === 0) {
+    return <div>No items to collect</div>;
+  }
   const equipmentData = equipments.get();
   const baseIngredients = computeBaseIngredients(requiredEquips);
   const icons = [...baseIngredients.entries()]

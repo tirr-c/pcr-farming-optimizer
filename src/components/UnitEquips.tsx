@@ -10,13 +10,17 @@ import EquipIcon from './EquipIcon';
 import UnitIcon from './UnitIcon';
 
 const Wrapper = styled('li')`
-  display: flex;
-  align-items: flex-start;
-  max-width: 600px;
-  margin: 0 auto;
-  > * + * {
-    margin-left: 8px;
-  }
+  display: grid;
+  width: 96px * 2 + 8px;
+  grid-template-columns: repeat(2, 96px);
+  grid-gap: 8px;
+  gap: 8px;
+`;
+
+const UnitName = styled('h3')`
+  font-size: 16px;
+  font-weight: bold;
+  align-self: self-end;
 `;
 
 const EquipGrid = styled('ul')`
@@ -31,13 +35,6 @@ const EquipGrid = styled('ul')`
 const RankSelector = styled('select')`
   grid-area: auto / span 2;
   height: 24px;
-`;
-
-const RequiredEquips = styled('div')`
-  flex: 1;
-
-  display: flex;
-  flex-wrap: wrap;
 `;
 
 interface Props {
@@ -67,7 +64,6 @@ export default function UnitEquips(props: Props) {
     }));
     return [unit.rankTo, data];
   });
-  const requiredEquips = useObserver(() => unit.requiredEquipsWithResource(unitData));
   const handleRankFromChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     const newRank = Number(e.target.value);
     unit.setRankFrom(newRank);
@@ -83,6 +79,7 @@ export default function UnitEquips(props: Props) {
   return (
     <Wrapper>
       <UnitIcon unitId={id} name={name} rarity={1} active size="medium" />
+      <UnitName>{name}</UnitName>
       <EquipGrid>
         <RankSelector value={String(rankFrom)} onChange={handleRankFromChange}>
           {rankOptions}
@@ -113,17 +110,6 @@ export default function UnitEquips(props: Props) {
           />
         ))}
       </EquipGrid>
-      <RequiredEquips>
-        {requiredEquips.map((id, idx) => (
-          <EquipIcon
-            key={`${idx}-${id}`}
-            id={id}
-            name=""
-            active
-            size="xsmall"
-          />
-        ))}
-      </RequiredEquips>
     </Wrapper>
   );
 }
