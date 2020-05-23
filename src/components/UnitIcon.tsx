@@ -1,7 +1,11 @@
 import styled from 'astroturf';
 import React from 'react';
 
-const Wrapper = styled('label')<{ size?: 'small' | 'medium' | 'large' }>`
+import Icon from './Icon';
+
+const Wrapper = styled('label')<{ size: 'small' | 'medium' | 'large' }>`
+  width: 100%;
+  height: 100%;
   position: relative;
 
   > input {
@@ -19,39 +23,23 @@ const Wrapper = styled('label')<{ size?: 'small' | 'medium' | 'large' }>`
     }
   }
 
-  $base-width: 128px;
   $base-radius: 8px;
   $sizes: ('small': 0.5, 'medium': 0.75, 'large': 1);
 
   @each $name, $scale in $sizes {
-    @if $name == 'small' {
-      width: $base-width * $scale;
-      height: $base-width * $scale;
+    &.size-#{$name} {
       > input {
         border-radius: $base-radius * $scale;
       }
-    } @else {
-      &.size-#{$name} {
-        width: $base-width * $scale;
-        height: $base-width * $scale;
-        > input {
-          border-radius: $base-radius * $scale;
-        }
-      }
     }
   }
-`;
-
-const Icon = styled('img')`
-  width: 100%;
-  height: 100%;
 `;
 
 interface Props {
   unitId: string;
   name: string;
   rarity: number;
-  size?: 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large';
   active?: boolean;
   onChange?(active: boolean): void;
 }
@@ -67,7 +55,7 @@ export default function UnitIcon(props: Props) {
   }, [onChange]);
   return (
     <Wrapper size={size}>
-      <Icon alt={name} src={src.toString()} />
+      <Icon size={size} alt={name} src={src.toString()} />
       <input type="checkbox" checked={active} onChange={handleChange} />
     </Wrapper>
   );

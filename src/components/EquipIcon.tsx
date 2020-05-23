@@ -1,8 +1,17 @@
-import styled from 'astroturf';
+import styled, { css } from 'astroturf';
 import React from 'react';
 
-const Wrapper = styled('label')<{ size: 'xsmall' | 'small' | 'medium' | 'large' }>`
+import Icon from './Icon';
+
+interface WrapperProps {
+  size: 'xsmall' | 'small' | 'medium' | 'large';
+  dimInactive?: boolean;
+}
+
+const Wrapper = styled('label')<WrapperProps>`
   display: block;
+  width: 100%;
+  height: 100%;
   position: relative;
 
   > input {
@@ -15,21 +24,31 @@ const Wrapper = styled('label')<{ size: 'xsmall' | 'small' | 'medium' | 'large' 
     height: 100%;
   }
 
-  $base-width: 128px;
+  &.dimInactive > input {
+    background-color: rgba(black, 0.5);
+
+    &:checked {
+      background-color: transparent;
+    }
+  }
+
   $base-radius: 8px;
   $sizes: ('xsmall': 0.375, 'small': 0.5, 'medium': 0.75, 'large': 1);
 
   @each $name, $scale in $sizes {
-    &.size-#{$name} {
-      width: $base-width * $scale;
-      height: $base-width * $scale;
+    &.size-#{$name} > input {
+      border-radius: $base-radius * $scale;
     }
   }
 `;
 
-const Icon = styled('img')`
-  width: 100%;
-  height: 100%;
+const styles = css`
+  .inactiveIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 `;
 
 interface Props {
@@ -37,19 +56,38 @@ interface Props {
   name: string;
   size: 'xsmall' | 'small' | 'medium' | 'large';
   active?: boolean;
+  dimInactive?: boolean;
   onChange?(active: boolean): void;
 }
 
 export default function EquipIcon(props: Props) {
-  const { id, name, size, active, onChange } = props;
-  const src = new URL(`/icons/equipment/${active ? '' : 'invalid/'}${id}.png`, 'https://ames-static.tirr.dev');
+  const { id, name, size, active, dimInactive, onChange } = props;
+  const activeSrc = new URL(`/icons/equipment/${id}.png`, 'https://ames-static.tirr.dev');
+  const inactiveSrc = new URL(`/icons/equipment/invalid/${id}.png`, 'https://ames-static.tirr.dev');
+  const showActive = dimInactive ? true : Boolean(active);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.checked);
   }, [onChange]);
   return (
-    <Wrapper size={size}>
-      <Icon alt={name} src={src.toString()} />
+    <Wrapper size={size} dimInactive={dimInactive}>
+      <Icon
+        key={`${id}-active`}
+        size={size}
+        alt={name}
+        src={activeSrc.toString()}
+        style={{opacity: showActive ? 1 : 0}}
+      />
+      {!dimInactive && (
+        <Icon
+          key={`${id}-inactive`}
+          size={size}
+          alt={name}
+          src={inactiveSrc.toString()}
+          className={styles.inactiveIcon}
+          style={{ opacity: showActive ? 0 : 1 }}
+        />
+      )}
       <input type="checkbox" checked={active} onChange={handleChange} />
     </Wrapper>
   );

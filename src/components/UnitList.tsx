@@ -82,6 +82,7 @@ function UnitItem(props: { id: string, name: string }) {
       name={name}
       rarity={1}
       active={rootState.units.has(id)}
+      size="small"
       onChange={handleChange}
     />
   ));
