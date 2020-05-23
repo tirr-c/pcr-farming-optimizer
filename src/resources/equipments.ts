@@ -23,16 +23,13 @@ const equipments = new RemoteResource(async () => {
 });
 export default equipments;
 
-export function getCraftIngredients(id: string): Map<string, number> {
-  const ingredients = equipments.get().get(id)?.craft?.ingredients;
-  if (ingredients == null) {
-    return new Map();
+export function computeBaseIngredients(
+  equipmentIds: string[],
+  equipmentData?: Map<string, Equipment>,
+): Map<string, number> {
+  if (equipmentData == null) {
+    equipmentData = equipments.get();
   }
-  return new Map(ingredients.map(item => [item.id, item.count]));
-}
-
-export function computeBaseIngredients(equipmentIds: string[]): Map<string, number> {
-  const equipmentData = equipments.get();
 
   const ret = new Map();
   let queue = new Map<string, number>();

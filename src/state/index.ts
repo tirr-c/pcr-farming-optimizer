@@ -2,6 +2,10 @@ import { types, Instance } from 'mobx-state-tree';
 import React from 'react';
 
 import { Unit as UnitResource } from '../resources/units';
+import {
+  Equipment as EquipmentResource,
+  computeBaseIngredients,
+} from '../resources/equipments';
 
 export const Unit = types
   .model('Unit', {
@@ -74,8 +78,7 @@ export const Unit = types
           return unit.equips[rank - 1]
             ?.filter((_, idx) => required[idx]) ?? [];
         })
-        .filter(id => id !== '999999')
-        .sort();
+        .filter(id => id !== '999999');
     }
   }));
 
@@ -83,6 +86,21 @@ export const Root = types
   .model('Root', {
     units: types.map(Unit),
   })
+  .views(self => ({
+    allRequiredEquipsWithResource(units: Map<string, UnitResource>) {
+      return [...self.units.values()]
+        .flatMap(unit => unit.requiredEquipsWithResource(units));
+    },
+  }))
+  .views(self => ({
+    allBaseIngredientsWithResource(
+      units: Map<string, UnitResource>,
+      equipments: Map<string, EquipmentResource>,
+    ) {
+      const requiredEquips = self.allRequiredEquipsWithResource(units);
+      return computeBaseIngredients(requiredEquips, equipments);
+    },
+  }))
   .actions(self => ({
     addUnit(id: string) {
       if (self.units.has(id)) {

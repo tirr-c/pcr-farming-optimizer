@@ -4,8 +4,15 @@ import React from 'react';
 
 import { useStateContext } from '../state';
 import units from '../resources/units';
-import equipments, { computeBaseIngredients } from '../resources/equipments';
+import equipments from '../resources/equipments';
+
 import EquipIcon from './EquipIcon';
+
+const Title = styled('h2')<{ open?: boolean }>`
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: bold;
+`;
 
 const EquipGrid = styled('ul')`
   display: grid;
@@ -19,16 +26,19 @@ const EquipGrid = styled('ul')`
 
 export default function BaseIngredientList() {
   const unitData = units.get();
-  const rootState = useStateContext();
-  const requiredEquips = useObserver(() => (
-    [...rootState.units.values()]
-      .flatMap(unit => unit.requiredEquipsWithResource(unitData))
-  ));
-  if (requiredEquips.length === 0) {
-    return <div>No items to collect</div>;
-  }
   const equipmentData = equipments.get();
-  const baseIngredients = computeBaseIngredients(requiredEquips);
+  const rootState = useStateContext();
+  const baseIngredients = useObserver(
+    () => rootState.allBaseIngredientsWithResource(unitData, equipmentData),
+  );
+  if (baseIngredients.size === 0) {
+    return (
+      <section>
+        <Title>Ingredients</Title>
+        <div>No items to collect</div>
+      </section>
+    );
+  }
   const icons = [...baseIngredients.entries()]
     .sort(([idA, countA], [idB, countB]) => {
       if (countA !== countB) {
@@ -72,8 +82,11 @@ export default function BaseIngredientList() {
     ));
 
   return (
-    <EquipGrid>
-      {icons}
-    </EquipGrid>
+    <section>
+      <Title>Ingredients</Title>
+      <EquipGrid>
+        {icons}
+      </EquipGrid>
+    </section>
   );
 }
