@@ -12,7 +12,7 @@ const Ui = styled('main')`
   margin: 0 auto;
   grid-template:
     'a c'
-    'b c'
+    'b c' 1fr
     / 1fr 1fr;
   grid-gap: 16px;
   gap: 16px;
@@ -20,8 +20,8 @@ const Ui = styled('main')`
   @media (max-width: 1200px) {
     grid-template:
       'a c'
-      'b c'
-      / auto 600px;
+      'b c' 1fr
+      / 1fr 600px;
   }
 
   @media (max-width: 1000px) {
