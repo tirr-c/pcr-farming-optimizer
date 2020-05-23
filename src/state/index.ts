@@ -81,7 +81,7 @@ export const Root = types
       if (self.units.has(id)) {
         return;
       }
-      self.units.put({ id, rankFrom: 1, rankTo: 13 });
+      self.units.put({ id });
     },
     removeUnit(id: string) {
       self.units.delete(id);
