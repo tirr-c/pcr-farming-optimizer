@@ -4,6 +4,7 @@
 
 html {
   font-family: sans-serif;
+  overflow-y: scroll;
 }
 
 ol, ul {
