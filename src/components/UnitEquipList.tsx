@@ -6,6 +6,16 @@ import { useStateContext } from '../state';
 
 import UnitEquips from './UnitEquips';
 
+const Title = styled('h2')`
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+const Description = styled('p')`
+  margin-bottom: 24px;
+`;
+
 const Wrapper = styled('ul')`
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
@@ -24,8 +34,14 @@ export default function UnitEquipList() {
       }))
   ));
   return (
-    <Wrapper>
-      {units.map(({ id, unit }) => <UnitEquips key={id} unit={unit} />)}
-    </Wrapper>
+    <section>
+      <Title>Rank & Equipments</Title>
+      <Description>
+        {units.length === 0 ? 'No characters selected.' : 'Click the equipment icon to toggle.'}
+      </Description>
+      <Wrapper>
+        {units.map(({ id, unit }) => <UnitEquips key={id} unit={unit} />)}
+      </Wrapper>
+    </section>
   );
 }

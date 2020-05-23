@@ -26,10 +26,14 @@ const UnitName = styled('h3')`
 const EquipGrid = styled('ul')`
   display: grid;
   grid-template-columns: repeat(2, 48px);
-  grid-template-rows: 28px;
+  grid-template-rows: auto 28px;
   grid-auto-rows: 48px;
   grid-gap: 0;
   gap: 0;
+`;
+
+const EquipGridLabel = styled('div')`
+  font-size: 14px;
 `;
 
 const RankSelector = styled('select')`
@@ -81,6 +85,7 @@ export default function UnitEquips(props: Props) {
       <UnitIcon unitId={id} name={name} rarity={1} active size="medium" />
       <UnitName>{name}</UnitName>
       <EquipGrid>
+        <EquipGridLabel>From:</EquipGridLabel>
         <RankSelector value={String(rankFrom)} onChange={handleRankFromChange}>
           {rankOptions}
         </RankSelector>
@@ -96,6 +101,7 @@ export default function UnitEquips(props: Props) {
         ))}
       </EquipGrid>
       <EquipGrid>
+        <EquipGridLabel>To:</EquipGridLabel>
         <RankSelector value={String(rankTo)} onChange={handleRankToChange}>
           {rankOptions}
         </RankSelector>

@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: sans-serif;
+}
+
 ol, ul {
   margin: 0;
   padding: 0;
@@ -17,6 +21,11 @@ input {
 }
 
 h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
   margin: 0;
   padding: 0;
 }
