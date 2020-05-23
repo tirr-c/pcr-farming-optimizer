@@ -6,6 +6,7 @@ export interface Equipment {
   id: string;
   name: string;
   description: string;
+  promotion_level: 'blue' | 'bronze' | 'silver' | 'gold' | 'purple' | 'special';
   craft: {
     cost: number;
     ingredients: {

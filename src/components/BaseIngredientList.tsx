@@ -27,7 +27,33 @@ export default function BaseIngredientList() {
   const equipmentData = equipments.get();
   const baseIngredients = computeBaseIngredients(requiredEquips);
   const icons = [...baseIngredients.entries()]
-    .sort(([idA], [idB]) => idA < idB ? -1 : idA === idB ? 0 : 1)
+    .sort(([idA], [idB]) => {
+      const eqA = equipmentData.get(idA);
+      const eqB = equipmentData.get(idB);
+      if (eqA === eqB) {
+        return 0;
+      }
+      if (eqA == null) {
+        return 1;
+      }
+      if (eqB == null) {
+        return -1;
+      }
+      if (eqA.promotion_level === eqB.promotion_level) {
+        return idA < idB ? -1 : idA === idB ? 0 : 1;
+      }
+      const promoMap = {
+        blue: 1,
+        bronze: 2,
+        silver: 3,
+        gold: 4,
+        purple: 5,
+        special: 99,
+      };
+      const promoIdxA = promoMap[eqA.promotion_level];
+      const promoIdxB = promoMap[eqB.promotion_level];
+      return promoIdxA - promoIdxB;
+    })
     .map(([id]) => (
       <li key={id}>
         <EquipIcon
