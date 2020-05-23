@@ -30,7 +30,10 @@ export default function BaseIngredientList() {
   const equipmentData = equipments.get();
   const baseIngredients = computeBaseIngredients(requiredEquips);
   const icons = [...baseIngredients.entries()]
-    .sort(([idA], [idB]) => {
+    .sort(([idA, countA], [idB, countB]) => {
+      if (countA !== countB) {
+        return countA - countB;
+      }
       const eqA = equipmentData.get(idA);
       const eqB = equipmentData.get(idB);
       if (eqA === eqB) {
