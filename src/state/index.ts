@@ -9,11 +9,14 @@ export const Unit = types
     rankFrom: 1,
     equipFrom: types.optional(types.array(types.boolean), () => Array(6).fill(false)),
     rankTo: 1,
-    equipTo: types.optional(types.array(types.boolean), () => Array(6).fill(false)),
+    equipTo: types.optional(types.array(types.boolean), () => Array(6).fill(true)),
   })
   .actions(self => {
     function setRankFrom(val: number) {
       self.rankFrom = val;
+      for (let i = 0; i < 6; i += 1) {
+        self.equipFrom[i] = (val > 1);
+      }
     }
     function changeEquipFrom(idx: number, val: boolean) {
       if (idx < 0 || idx >= 6) {
@@ -23,6 +26,9 @@ export const Unit = types
     }
     function setRankTo(val: number) {
       self.rankTo = val;
+      for (let i = 0; i < 6; i += 1) {
+        self.equipTo[i] = true;
+      }
     }
     function changeEquipTo(idx: number, val: boolean) {
       if (idx < 0 || idx >= 6) {
@@ -68,6 +74,7 @@ export const Unit = types
           return unit.equips[rank - 1]
             ?.filter((_, idx) => required[idx]) ?? [];
         })
+        .filter(id => id !== '999999')
         .sort();
     }
   }));
