@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  pathPrefix: '/farming-optimizer',
   siteMetadata: {
     title: 'PriconneR Farming Optimizer',
   },
