@@ -16,6 +16,12 @@ const Title = styled('h2')`
   font-weight: bold;
 `;
 
+const List = styled('ul')`
+  > * + * {
+    margin-top: 12px;
+  }
+`;
+
 const LoadMore = styled('button')`
   appearance: none;
   width: 100%;
@@ -42,11 +48,11 @@ export default function QuestList() {
   return (
     <section>
       <Title>Recommended Quests</Title>
-      <ul>
+      <List>
         {quests.slice(0, limit).map(({ id }) => (
           <Quest key={id} id={id} />
         ))}
-      </ul>
+      </List>
       {quests.length > limit && (
         <LoadMore type="button" onClick={handleLoadMore}>
           Load more

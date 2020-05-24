@@ -8,11 +8,16 @@ import quests, { calculateDrops } from '../resources/quests';
 import { useStateContext } from '../state';
 
 import EquipIcon from './EquipIcon';
+import Icon from './Icon';
 
 const AreaId = styled('div')`
   display: flex;
   height: 32px;
   align-items: center;
+
+  > img:last-of-type {
+    margin-right: 8px;
+  }
 `;
 
 const Drops = styled('dl')`
@@ -76,6 +81,14 @@ export default function Quest(props: Props) {
   return (
     <li>
       <AreaId>
+        {memoryPieces.map(id => (
+          <Icon
+            key={id}
+            size="xxsmall"
+            src={new URL(`/icons/item/${id}.png`, 'https://ames-static.tirr.dev').toString()}
+            alt=""
+          />
+        ))}
         {`${areaId}-${stageId}${difficultyId}`}
       </AreaId>
       <Drops>
