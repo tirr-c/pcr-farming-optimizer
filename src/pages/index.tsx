@@ -4,6 +4,7 @@ import React from 'react';
 
 import BaseIngredientList from '../components/BaseIngredientList';
 import Layout from '../components/Layout';
+import QuestList from '../components/QuestList';
 import UnitEquipList from '../components/UnitEquipList';
 import UnitList from '../components/UnitList';
 
@@ -74,6 +75,9 @@ export default function Index(props: Props) {
           <UnitEquipList />
           <div>
             <BaseIngredientList />
+            <React.Suspense fallback={<div>Loading quest info...</div>}>
+              <QuestList />
+            </React.Suspense>
           </div>
         </React.Suspense>
       </Layout>
