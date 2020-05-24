@@ -5,6 +5,7 @@ import RemoteResource from '../utils/RemoteResource';
 export interface Quest {
   id: string;
   name: string;
+  stamina: number;
   wave_groups: WaveGroup[];
 }
 
@@ -53,7 +54,7 @@ export interface RewardEquipment {
 
 export type Reward = RewardNothing | RewardItem | RewardEquipment;
 
-export function calculateDrops(quest: Quest): DropData[] {
+export function calculateDrops(quest: Quest): DropData[][] {
   return quest.wave_groups.flatMap(wg => (
     wg.waves.flatMap(wave => (
       wave.enemies.flatMap(enemy => {
@@ -63,7 +64,7 @@ export function calculateDrops(quest: Quest): DropData[] {
         }
         return Array(dropReward.drop_count)
           .fill(0)
-          .flatMap(() => (
+          .map(() => (
             dropReward.possible_drops
               .map(drop => ({
                 ...drop,
@@ -88,6 +89,7 @@ const quests = new RemoteResource<QuestMaps>(async () => {
   for (const quest of questData) {
     const drops = calculateDrops(quest);
     const equipments = drops
+      .flat()
       .map(drop => drop.reward)
       .filter(reward => reward.type === 'equipment') as RewardEquipment[];
     const id = quest.id;
@@ -107,17 +109,29 @@ export default quests;
 function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>) {
   const dropData = calculateDrops(quest);
   return dropData
-    .map(drop => {
-      if (drop.reward.type !== 'equipment') {
+    .map(dropGroup => {
+      const scores = dropGroup.map(drop => {
+        if (drop.reward.type !== 'equipment') {
+          return {
+            odds: drop.odds,
+            count: 0,
+          };
+        }
+        const count = equipmentIdMap.get(drop.reward.id) ?? 0;
+        return {
+          odds: drop.odds,
+          count: drop.count * count,
+        };
+      }).filter(({ count }) => count > 0);
+      const count = scores.length;
+      if (count <= 0) {
         return 0;
       }
-      const count = equipmentIdMap.get(drop.reward.id);
-      if (count != null) {
-        return drop.odds * drop.count * count;
-      }
-      return 0;
+      const sumOdds = scores.reduce((a, b) => a + b.odds, 0);
+      const sumCount = scores.reduce((a, b) => a + b.count, 0);
+      return sumOdds * sumCount / count;
     })
-    .reduce((a, b) => a + b, 0);
+    .reduce((a, b) => a + b, 0) / quest.stamina;
 }
 
 export function rankQuests(

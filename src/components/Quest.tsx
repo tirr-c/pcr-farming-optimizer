@@ -42,6 +42,7 @@ const DropGroup = styled('div')`
 
 interface Props {
   id: string;
+  score?: number;
 }
 
 const difficulties = [, 'N', 'H', 'VH'];
@@ -59,7 +60,7 @@ export default function Quest(props: Props) {
   const areaId = parseInt(id.substring(2, 5), 10);
   const stageId = parseInt(id.substring(6, 9), 10);
 
-  const drops = calculateDrops(quest);
+  const drops = calculateDrops(quest).flat();
   const memoryPieces = [];
   const dropGroups = new Map<number, string[]>();
   for (const drop of drops) {
@@ -90,6 +91,7 @@ export default function Quest(props: Props) {
           />
         ))}
         {`${areaId}-${stageId}${difficultyId}`}
+        {props.score != null && ` (scored ${props.score})`}
       </AreaId>
       <Drops>
         {[...dropGroups.entries()].map(([odds, ids]) => (

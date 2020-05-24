@@ -49,8 +49,8 @@ export default function QuestList() {
     <section>
       <Title>Recommended Quests</Title>
       <List>
-        {quests.slice(0, limit).map(({ id }) => (
-          <Quest key={id} id={id} />
+        {quests.slice(0, limit).map(({ id, score }) => (
+          <Quest key={id} id={id} score={score} />
         ))}
       </List>
       {quests.length > limit && (
