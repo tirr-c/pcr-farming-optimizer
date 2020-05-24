@@ -21,6 +21,7 @@ const Ui = styled('main')`
     't t'
     'a c'
     'b c' 1fr
+    'f f'
     / 1fr 1fr;
   grid-gap: 16px;
   gap: 16px;
@@ -30,11 +31,12 @@ const Ui = styled('main')`
       't t'
       'a c'
       'b c' 1fr
+      'f f'
       / 1fr 600px;
   }
 
   @media (max-width: 1000px) {
-    grid-template: 't' 'a' 'b' 'c' / 100%;
+    grid-template: 't' 'a' 'b' 'c' 'f' / 100%;
     grid-auto-rows: auto;
   }
 
@@ -53,6 +55,15 @@ const Ui = styled('main')`
   > :nth-child(4) {
     grid-area: c;
   }
+
+  > :nth-child(5) {
+    grid-area: f;
+  }
+`;
+
+const Footer = styled('footer')`
+  font-size: 14px;
+  color: gray;
 `;
 
 interface Props {
@@ -81,6 +92,15 @@ export default function Index(props: Props) {
           </div>
         </React.Suspense>
       </Layout>
+      <Footer>
+        <p>
+          This is a fan site of the game <cite>Princess Connect! Re:Dive</cite>.
+          {' '}
+          <a href="https://priconne-redive.jp">
+            See the official website (Japanese).
+          </a>
+        </p>
+      </Footer>
     </Ui>
   );
 }
