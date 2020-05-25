@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import 'mobx-react-lite/batchingForReactDom';
 
 import './src/reset.css';
-import { StateProvider, Root } from './src/state';
+import Wrapper from './src/components/Wrapper';
+import { Root } from './src/state';
 
 const rootState = Root.create({});
 
@@ -19,8 +20,8 @@ export function replaceHydrateFunction() {
 
 export function wrapRootElement({ element }) {
   return React.createElement(
-    StateProvider,
-    { value: rootState },
+    Wrapper,
+    { rootState },
     element,
   );
 };

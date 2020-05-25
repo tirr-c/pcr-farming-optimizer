@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { StateProvider, Root } from './src/state';
+import Wrapper from './src/components/Wrapper';
+import { Root } from './src/state';
 
 export function wrapRootElement({ element }) {
   const rootState = Root.create({});
   return React.createElement(
-    StateProvider,
-    { value: rootState },
+    Wrapper,
+    { rootState },
     element,
   );
 }
