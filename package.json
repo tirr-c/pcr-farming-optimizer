@@ -1,5 +1,6 @@
 {
   "name": "farming-optimizer",
+  "license": "MIT OR Apache-2.0",
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build"
