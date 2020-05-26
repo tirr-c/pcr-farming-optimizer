@@ -7,13 +7,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-sass',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'assets',
-        path: path.resolve(__dirname, 'src/assets'),
-      },
-    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     {
