@@ -6351,7 +6351,6 @@ __metadata:
     gatsby-plugin-react-helmet: ^3.3.1
     gatsby-plugin-sass: ^2.3.1
     gatsby-plugin-typescript: ^2.4.2
-    gatsby-source-filesystem: ^2.3.1
     mobx: ^5.15.4
     mobx-react-lite: ^2.0.7
     mobx-state-tree: ^3.16.0
@@ -6490,13 +6489,6 @@ __metadata:
   peerDependencies:
     webpack: ^2.0.0 || ^3.0.0 || ^4.0.0
   checksum: 3/1fe0faf8e6b6cba4d3df425f4336c87e1cef14ccc4f30f16e79cfb75039cceb8594634345d03e4b194242bed47c0767cb7c5e9401e482b62ba80a09821bf02c3
-  languageName: node
-  linkType: hard
-
-"file-type@npm:^12.4.2":
-  version: 12.4.2
-  resolution: "file-type@npm:12.4.2"
-  checksum: 3/3f822c6254538948b3d193dcfd208de711b3ceeac33169605b327a9e4bb77e10f6492ecbd20ecf471e854df697ed884a0c9f29ff32120499dbbec765e338b796
   languageName: node
   linkType: hard
 
@@ -7135,31 +7127,6 @@ fsevents@~2.1.2:
     ws: ^7.2.5
     xstate: ^4.9.1
   checksum: 3/dce6b59a56076e6907a081172015de522d996afa12477dc87a3e7bf393b5e8cd3e500eb46ea9077e0c0a1f7f3fa3da50ad32a615afb8c4a9bfb3586a8ff63949
-  languageName: node
-  linkType: hard
-
-"gatsby-source-filesystem@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "gatsby-source-filesystem@npm:2.3.1"
-  dependencies:
-    "@babel/runtime": ^7.9.6
-    better-queue: ^3.8.10
-    bluebird: ^3.7.2
-    chokidar: 3.4.0
-    file-type: ^12.4.2
-    fs-extra: ^8.1.0
-    gatsby-core-utils: ^1.2.1
-    got: ^9.6.0
-    md5-file: ^3.2.3
-    mime: ^2.4.5
-    pretty-bytes: ^5.3.0
-    progress: ^2.0.3
-    read-chunk: ^3.2.0
-    valid-url: ^1.0.9
-    xstate: ^4.9.1
-  peerDependencies:
-    gatsby: ^2.2.0
-  checksum: 3/dd9b61232c82d85a60ba45ffccac9950032ff735c94face711ad0973a2196e159b342ab6dca107b9995b5eca2d38d71a653f2f494954ed74f37714ea845076cc
   languageName: node
   linkType: hard
 
@@ -11633,7 +11600,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"p-try@npm:^2.0.0, p-try@npm:^2.1.0":
+"p-try@npm:^2.0.0":
   version: 2.2.0
   resolution: "p-try@npm:2.2.0"
   checksum: 3/20983f3765466c1ab617ed153cb53b70ac5df828d854a3334d185e20b37f436e9096f12bc1b7fc96d8908dc927a3685172d3d89e755774f57b7103460c54dcc5
@@ -12623,7 +12590,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"pretty-bytes@npm:^5.1.0, pretty-bytes@npm:^5.3.0":
+"pretty-bytes@npm:^5.1.0":
   version: 5.3.0
   resolution: "pretty-bytes@npm:5.3.0"
   checksum: 3/ecc6b1670f7ebcf6c78b91edad97ffdc0be58283ff5fa6c95c99c6bda48d2aa1858367fae8eccce35bc36eb90ec3cbcc24b9d7e29fd6ad98cc52d53d2e307789
@@ -13193,16 +13160,6 @@ fsevents@~2.1.2:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: 3/b81525e6114c5eb16f41d70c2216b096cd7b516a1955ae516caef29d1ffa41b20af14df22a61742990ecd8286e18f7468cf0030ea8f96ab7dbc14250a12e7e54
-  languageName: node
-  linkType: hard
-
-"read-chunk@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "read-chunk@npm:3.2.0"
-  dependencies:
-    pify: ^4.0.1
-    with-open-file: ^0.1.6
-  checksum: 3/789449861ba73b48d5b3bc5bf48bdacb42e86f50cb7fa5acc605f4ece203baa9e2b73458ba0e82c474142d52221ba06d37de1fbb144cd6a171ffb53595a432bd
   languageName: node
   linkType: hard
 
@@ -16159,13 +16116,6 @@ typescript@^3.8.3:
   languageName: node
   linkType: hard
 
-"valid-url@npm:^1.0.9":
-  version: 1.0.9
-  resolution: "valid-url@npm:1.0.9"
-  checksum: 3/988964543cb297c1d953dbf665de06cc8c46791eaf5ef3bb32b03b103c53dced7dfaa8f19863255126cbd75049a67f19415d9e647b603b759922284ccc48e776
-  languageName: node
-  linkType: hard
-
 "validate-npm-package-license@npm:^3.0.1":
   version: 3.0.4
   resolution: "validate-npm-package-license@npm:3.0.4"
@@ -16504,17 +16454,6 @@ typescript@^3.8.3:
   dependencies:
     string-width: ^4.0.0
   checksum: 3/729c30582e49bdcb1372216eedfd71d1640a1344a4b4e970bc9f33d575b56b130f530b383fbab2cf2bcffb76ea4357e6a66939778d8de91ca66037651d94e01a
-  languageName: node
-  linkType: hard
-
-"with-open-file@npm:^0.1.6":
-  version: 0.1.7
-  resolution: "with-open-file@npm:0.1.7"
-  dependencies:
-    p-finally: ^1.0.0
-    p-try: ^2.1.0
-    pify: ^4.0.1
-  checksum: 3/c345da692e6cb261a71790fc3a7d85eeeddd326bf2398080c219068863bffa71d8a07d0482b56df6fcce3ad8b0538926a6d19c159f7de468a0841cc5ad61ca3f
   languageName: node
   linkType: hard
 
