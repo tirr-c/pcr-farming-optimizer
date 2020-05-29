@@ -34,17 +34,17 @@ export function computeBaseIngredients(
   const ret = new Map();
   let queue = new Map<string, number>();
   for (const equip of equipmentIds) {
-    queue.set(equip, queue.get(equip) || 0 + 1);
+    queue.set(equip, (queue.get(equip) || 0) + 1);
   }
   while (queue.size > 0) {
     const newQueue = new Map();
     for (const [equip, count] of queue) {
       const ingredients = equipmentData.get(equip)?.craft?.ingredients;
       if (ingredients == null) {
-        ret.set(equip, ret.get(equip) || 0 + count);
+        ret.set(equip, (ret.get(equip) || 0) + count);
       } else {
         for (const ingredient of ingredients) {
-          newQueue.set(ingredient.id, newQueue.get(ingredient.id) || 0 + ingredient.count * count);
+          newQueue.set(ingredient.id, (newQueue.get(ingredient.id) || 0) + ingredient.count * count);
         }
       }
     }
