@@ -25,6 +25,10 @@ const EquipGrid = styled('ul')`
   gap: 0;
 `;
 
+const EquipCount = styled('span')`
+  text-shadow: 1px 1px white, -1px 1px white, 1px -1px white, -1px -1px white;
+`;
+
 export default function BaseIngredientList() {
   const unitData = units.get();
   const equipmentData = equipments.get();
@@ -71,14 +75,16 @@ export default function BaseIngredientList() {
       const promoIdxB = promoMap[eqB.promotion_level];
       return promoIdxA - promoIdxB;
     })
-    .map(([id]) => (
+    .map(([id, count]) => (
       <li key={id}>
         <EquipIcon
           id={id}
           name={equipmentData.get(id)?.name || ''}
           size="xsmall"
           active
-        />
+        >
+          <EquipCount>{count}</EquipCount>
+        </EquipIcon>
       </li>
     ));
 

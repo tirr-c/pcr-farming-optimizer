@@ -42,6 +42,23 @@ const Wrapper = styled('label')<WrapperProps>`
   }
 `;
 
+const Addon = styled('div')<Pick<WrapperProps, 'size'>>`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
+
+  $base-padding: 8px;
+  $sizes: ('xsmall': 0.375, 'small': 0.5, 'medium': 0.75, 'large': 1);
+
+  @each $name, $scale in $sizes {
+    &.size-#{$name} {
+      padding: $base-padding * $scale;
+    }
+  }
+`;
+
 const styles = css`
   .inactiveIcon {
     position: absolute;
@@ -58,10 +75,11 @@ interface Props {
   active?: boolean;
   dimInactive?: boolean;
   onChange?(active: boolean): void;
+  children?: React.ReactNode;
 }
 
 export default function EquipIcon(props: Props) {
-  const { id, name, size, active, dimInactive, onChange } = props;
+  const { id, name, size, active, dimInactive, onChange, children } = props;
   const activeSrc = new URL(`/icons/equipment/${id}.png`, 'https://ames-static.tirr.dev');
   const inactiveSrc = new URL(`/icons/equipment/invalid/${id}.png`, 'https://ames-static.tirr.dev');
   const showActive = dimInactive ? true : Boolean(active);
@@ -88,6 +106,7 @@ export default function EquipIcon(props: Props) {
           style={{ opacity: showActive ? 0 : 1 }}
         />
       )}
+      <Addon size={size}>{children}</Addon>
       <input type="checkbox" checked={active} onChange={handleChange} />
     </Wrapper>
   );
