@@ -77,14 +77,7 @@ export default function BaseIngredientList() {
     })
     .map(([id, count]) => (
       <li key={id}>
-        <EquipIcon
-          id={id}
-          name={equipmentData.get(id)?.name || ''}
-          size="xsmall"
-          active
-        >
-          <EquipCount>{count}</EquipCount>
-        </EquipIcon>
+        <InteractiveEquipIcon id={id} count={count} />
       </li>
     ));
 
@@ -95,5 +88,31 @@ export default function BaseIngredientList() {
         {icons}
       </EquipGrid>
     </section>
+  );
+}
+
+function InteractiveEquipIcon(props: { id: string; count: number }) {
+  const { id, count } = props;
+  const equipmentData = equipments.get();
+  const rootState = useStateContext();
+  const active = useObserver(() => !rootState.excludedEquips.has(id));
+  const handleChange = React.useCallback(value => {
+    if (value) {
+      rootState.includeEquip(id);
+    } else {
+      rootState.excludeEquip(id);
+    }
+  }, [id]);
+  return (
+    <EquipIcon
+      id={id}
+      name={equipmentData.get(id)?.name || ''}
+      size="xsmall"
+      active={active}
+      dimInactive
+      onChange={handleChange}
+    >
+      <EquipCount>{count}</EquipCount>
+    </EquipIcon>
   );
 }

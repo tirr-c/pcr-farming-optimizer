@@ -37,7 +37,7 @@ export default function QuestList() {
   const equipmentData = equipments.get();
   const rootState = useStateContext();
   const equipmentIdMap = useObserver(
-    () => rootState.allBaseIngredientsWithResource(unitData, equipmentData)
+    () => rootState.allBaseIngredientsExcludedWithResource(unitData, equipmentData)
   );
   const quests = React.useMemo(() => rankQuests(equipmentIdMap), [equipmentIdMap]);
 

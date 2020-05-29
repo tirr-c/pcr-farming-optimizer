@@ -82,9 +82,15 @@ export const Unit = types
     }
   }));
 
+export const Equipment = types
+  .model('Equipment', {
+    id: types.identifier,
+  });
+
 export const Root = types
   .model('Root', {
     units: types.map(Unit),
+    excludedEquips: types.map(Equipment),
   })
   .views(self => ({
     allRequiredEquipsWithResource(units: Map<string, UnitResource>) {
@@ -101,6 +107,18 @@ export const Root = types
       return computeBaseIngredients(requiredEquips, equipments);
     },
   }))
+  .views(self => ({
+    allBaseIngredientsExcludedWithResource(
+      units: Map<string, UnitResource>,
+      equipments: Map<string, EquipmentResource>,
+    ) {
+      const ret = self.allBaseIngredientsWithResource(units, equipments);
+      self.excludedEquips.forEach(({ id }) => {
+        ret.delete(id);
+      });
+      return ret;
+    },
+  }))
   .actions(self => ({
     addUnit(id: string) {
       if (self.units.has(id)) {
@@ -110,6 +128,12 @@ export const Root = types
     },
     removeUnit(id: string) {
       self.units.delete(id);
+    },
+    excludeEquip(id: string) {
+      self.excludedEquips.put({ id });
+    },
+    includeEquip(id: string) {
+      self.excludedEquips.delete(id);
     },
   }));
 

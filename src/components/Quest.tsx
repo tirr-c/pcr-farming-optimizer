@@ -76,7 +76,7 @@ export default function Quest(props: Props) {
 
   const rootState = useStateContext();
   const equipmentIdMap = useObserver(
-    () => rootState.allBaseIngredientsWithResource(unitData, equipmentData)
+    () => rootState.allBaseIngredientsExcludedWithResource(unitData, equipmentData)
   );
 
   return (
