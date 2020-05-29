@@ -14,6 +14,10 @@ const Title = styled('h2')<{ open?: boolean }>`
   font-weight: bold;
 `;
 
+const Description = styled('p')`
+  margin-bottom: 24px;
+`;
+
 const EquipGrid = styled('ul')`
   display: grid;
   max-width: 48px * 10;
@@ -84,6 +88,9 @@ export default function BaseIngredientList() {
   return (
     <section>
       <Title>Ingredients</Title>
+      <Description>
+        Click the equipment icon to toggle.
+      </Description>
       <EquipGrid>
         {icons}
       </EquipGrid>
