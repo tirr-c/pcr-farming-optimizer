@@ -134,13 +134,31 @@ function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>) {
     .reduce((a, b) => a + b, 0) / quest.stamina;
 }
 
+export interface Multipliers {
+  normal?: number;
+  hard?: number;
+  veryHard?: number;
+}
+
+export interface RankQuestsOptions {
+  questMaps?: QuestMaps;
+  multipliers?: Multipliers;
+}
+
 export function rankQuests(
   equipmentIdMap: Map<string, number>,
-  questMaps?: QuestMaps,
+  options: RankQuestsOptions = {},
 ): { id: string; score: number }[] {
+  let questMaps = options.questMaps;
   if (questMaps == null) {
     questMaps = quests.get();
   }
+  const {
+    normal: normalMultiplier = 1,
+    hard: hardMultiplier = 1,
+    veryHard: veryHardMultiplier = 1,
+  } = options.multipliers || {};
+
   const { idQuestMap, equipQuestMap } = questMaps;
   const equipmentIds = [...equipmentIdMap.keys()];
   const questIds = new Set(
@@ -154,9 +172,11 @@ export function rankQuests(
         score: 0,
       };
     }
+    const score = scoreQuest(quest, equipmentIdMap);
+    const multiplier = [, normalMultiplier, hardMultiplier, veryHardMultiplier][Number(id[1])] || 1;
     return {
       id,
-      score: scoreQuest(quest, equipmentIdMap),
+      score: score * multiplier,
     };
   });
   scoredQuests.sort((a, b) => {
