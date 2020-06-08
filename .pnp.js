@@ -58,6 +58,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.2.1"
       ],
       [
+        "gatsby-plugin-offline",
+        "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8"
+      ],
+      [
         "gatsby-plugin-react-helmet",
         "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.3.1"
       ],
@@ -120,6 +124,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.10.4"],
             ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],
             ["gatsby-plugin-astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.2.1"],
+            ["gatsby-plugin-offline", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8"],
             ["gatsby-plugin-react-helmet", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.3.1"],
             ["gatsby-plugin-sass", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.3.1"],
             ["gatsby-plugin-typescript", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.4.2"],
@@ -1612,6 +1617,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@babel/runtime", [
+        ["npm:7.10.2", {
+          "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.10.2-a84cbd8811-3.zip/node_modules/@babel/runtime/",
+          "packageDependencies": [
+            ["@babel/runtime", "npm:7.10.2"],
+            ["regenerator-runtime", "npm:0.13.5"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:7.9.6", {
           "packageLocation": "./.yarn/cache/@babel-runtime-npm-7.9.6-93b1a0d418-3.zip/node_modules/@babel/runtime/",
           "packageDependencies": [
@@ -3586,6 +3599,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["babel-extract-comments", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/babel-extract-comments-npm-1.0.0-66ce3c8bbc-3.zip/node_modules/babel-extract-comments/",
+          "packageDependencies": [
+            ["babel-extract-comments", "npm:1.0.0"],
+            ["babylon", "npm:6.18.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["babel-loader", [
         ["virtual:9b668446385a8f63d364421908817331c919e878ecdd9ee97fdd43b6ce2d2cb596707fc5af05eb954a936f9c7626fc5eb7c2889d57e85e3f1fc6740331d09d66#npm:8.1.0", {
           "packageLocation": "./.yarn/$$virtual/babel-loader-virtual-a1334ddc6e/0/cache/babel-loader-npm-8.1.0-e8c38740ba-3.zip/node_modules/babel-loader/",
@@ -3722,6 +3745,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["babel-plugin-syntax-object-rest-spread", [
+        ["npm:6.13.0", {
+          "packageLocation": "./.yarn/cache/babel-plugin-syntax-object-rest-spread-npm-6.13.0-9905241ebe-3.zip/node_modules/babel-plugin-syntax-object-rest-spread/",
+          "packageDependencies": [
+            ["babel-plugin-syntax-object-rest-spread", "npm:6.13.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["babel-plugin-transform-object-rest-spread", [
+        ["npm:6.26.0", {
+          "packageLocation": "./.yarn/cache/babel-plugin-transform-object-rest-spread-npm-6.26.0-c2b6454d62-3.zip/node_modules/babel-plugin-transform-object-rest-spread/",
+          "packageDependencies": [
+            ["babel-plugin-transform-object-rest-spread", "npm:6.26.0"],
+            ["babel-plugin-syntax-object-rest-spread", "npm:6.13.0"],
+            ["babel-runtime", "npm:6.26.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["babel-plugin-transform-react-remove-prop-types", [
         ["npm:0.4.24", {
           "packageLocation": "./.yarn/cache/babel-plugin-transform-react-remove-prop-types-npm-0.4.24-63d7506242-3.zip/node_modules/babel-plugin-transform-react-remove-prop-types/",
@@ -3764,6 +3807,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-runtime", "npm:6.26.0"],
             ["core-js", "npm:2.6.11"],
             ["regenerator-runtime", "npm:0.11.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["babylon", [
+        ["npm:6.18.0", {
+          "packageLocation": "./.yarn/cache/babylon-npm-6.18.0-2c6a1b9c30-3.zip/node_modules/babylon/",
+          "packageDependencies": [
+            ["babylon", "npm:6.18.0"]
           ],
           "linkType": "HARD",
         }]
@@ -4665,6 +4717,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/charenc-npm-0.0.2-aca0c2f207-3.zip/node_modules/charenc/",
           "packageDependencies": [
             ["charenc", "npm:0.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["cheerio", [
+        ["npm:1.0.0-rc.3", {
+          "packageLocation": "./.yarn/cache/cheerio-npm-1.0.0-rc.3-27acf9bb0c-3.zip/node_modules/cheerio/",
+          "packageDependencies": [
+            ["cheerio", "npm:1.0.0-rc.3"],
+            ["css-select", "npm:1.2.0"],
+            ["dom-serializer", "npm:0.1.1"],
+            ["entities", "npm:1.1.2"],
+            ["htmlparser2", "npm:3.10.1"],
+            ["lodash", "npm:4.17.15"],
+            ["parse5", "npm:3.0.3"]
           ],
           "linkType": "HARD",
         }]
@@ -6392,6 +6459,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["dom-serializer", [
+        ["npm:0.1.1", {
+          "packageLocation": "./.yarn/cache/dom-serializer-npm-0.1.1-4c6e4ec242-3.zip/node_modules/dom-serializer/",
+          "packageDependencies": [
+            ["dom-serializer", "npm:0.1.1"],
+            ["domelementtype", "npm:1.3.1"],
+            ["entities", "npm:1.1.2"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:0.2.2", {
           "packageLocation": "./.yarn/cache/dom-serializer-npm-0.2.2-2e24969c0e-3.zip/node_modules/dom-serializer/",
           "packageDependencies": [
@@ -7463,6 +7539,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.10.4"],
             ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],
             ["gatsby-plugin-astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.2.1"],
+            ["gatsby-plugin-offline", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8"],
             ["gatsby-plugin-react-helmet", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.3.1"],
             ["gatsby-plugin-sass", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.3.1"],
             ["gatsby-plugin-typescript", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.4.2"],
@@ -7901,6 +7978,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["fs-extra", [
+        ["npm:4.0.3", {
+          "packageLocation": "./.yarn/cache/fs-extra-npm-4.0.3-2a1f6bc181-3.zip/node_modules/fs-extra/",
+          "packageDependencies": [
+            ["fs-extra", "npm:4.0.3"],
+            ["graceful-fs", "npm:4.2.4"],
+            ["jsonfile", "npm:4.0.0"],
+            ["universalify", "npm:0.1.2"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:8.1.0", {
           "packageLocation": "./.yarn/cache/fs-extra-npm-8.1.0-197473387f-3.zip/node_modules/fs-extra/",
           "packageDependencies": [
@@ -8218,6 +8305,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-object-hash", "npm:2.0.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:1.3.4", {
+          "packageLocation": "./.yarn/cache/gatsby-core-utils-npm-1.3.4-72237fbfdf-3.zip/node_modules/gatsby-core-utils/",
+          "packageDependencies": [
+            ["gatsby-core-utils", "npm:1.3.4"],
+            ["ci-info", "npm:2.0.0"],
+            ["configstore", "npm:5.0.1"],
+            ["fs-extra", "npm:8.1.0"],
+            ["node-object-hash", "npm:2.0.0"],
+            ["proper-lockfile", "npm:4.1.1"],
+            ["xdg-basedir", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["gatsby-graphiql-explorer", [
@@ -8283,6 +8383,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "astroturf",
+            "gatsby"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["gatsby-plugin-offline", [
+        ["virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8", {
+          "packageLocation": "./.yarn/$$virtual/gatsby-plugin-offline-virtual-88304b3157/0/cache/gatsby-plugin-offline-npm-3.2.8-0490e63eee-3.zip/node_modules/gatsby-plugin-offline/",
+          "packageDependencies": [
+            ["gatsby-plugin-offline", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8"],
+            ["@babel/runtime", "npm:7.10.2"],
+            ["cheerio", "npm:1.0.0-rc.3"],
+            ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],
+            ["gatsby-core-utils", "npm:1.3.4"],
+            ["glob", "npm:7.1.6"],
+            ["idb-keyval", "npm:3.2.0"],
+            ["lodash", "npm:4.17.15"],
+            ["workbox-build", "npm:4.3.1"]
+          ],
+          "packagePeers": [
             "gatsby"
           ],
           "linkType": "HARD",
@@ -8521,6 +8641,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/get-caller-file-npm-2.0.5-80e8a86305-3.zip/node_modules/get-caller-file/",
           "packageDependencies": [
             ["get-caller-file", "npm:2.0.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["get-own-enumerable-property-symbols", [
+        ["npm:3.0.2", {
+          "packageLocation": "./.yarn/cache/get-own-enumerable-property-symbols-npm-3.0.2-f143f9e8d3-3.zip/node_modules/get-own-enumerable-property-symbols/",
+          "packageDependencies": [
+            ["get-own-enumerable-property-symbols", "npm:3.0.2"]
           ],
           "linkType": "HARD",
         }]
@@ -9628,6 +9757,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["idb-keyval", [
+        ["npm:3.2.0", {
+          "packageLocation": "./.yarn/cache/idb-keyval-npm-3.2.0-8f62d90403-3.zip/node_modules/idb-keyval/",
+          "packageDependencies": [
+            ["idb-keyval", "npm:3.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["ieee754", [
         ["npm:1.1.13", {
           "packageLocation": "./.yarn/cache/ieee754-npm-1.1.13-a57522ba12-3.zip/node_modules/ieee754/",
@@ -10654,6 +10792,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["is-regexp", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/is-regexp-npm-1.0.0-8f95f51a0c-3.zip/node_modules/is-regexp/",
+          "packageDependencies": [
+            ["is-regexp", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["is-relative", [
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/is-relative-npm-1.0.0-af71733ca6-3.zip/node_modules/is-relative/",
@@ -11459,6 +11606,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["lodash._reinterpolate", [
+        ["npm:3.0.0", {
+          "packageLocation": "./.yarn/cache/lodash._reinterpolate-npm-3.0.0-3c62ca439e-3.zip/node_modules/lodash._reinterpolate/",
+          "packageDependencies": [
+            ["lodash._reinterpolate", "npm:3.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["lodash.clonedeep", [
         ["npm:4.5.0", {
           "packageLocation": "./.yarn/cache/lodash.clonedeep-npm-4.5.0-fbc3cda4e5-3.zip/node_modules/lodash.clonedeep/",
@@ -11536,6 +11692,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/lodash.memoize-npm-4.1.2-0e6250041f-3.zip/node_modules/lodash.memoize/",
           "packageDependencies": [
             ["lodash.memoize", "npm:4.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lodash.template", [
+        ["npm:4.5.0", {
+          "packageLocation": "./.yarn/cache/lodash.template-npm-4.5.0-5272df3039-3.zip/node_modules/lodash.template/",
+          "packageDependencies": [
+            ["lodash.template", "npm:4.5.0"],
+            ["lodash._reinterpolate", "npm:3.0.0"],
+            ["lodash.templatesettings", "npm:4.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lodash.templatesettings", [
+        ["npm:4.2.0", {
+          "packageLocation": "./.yarn/cache/lodash.templatesettings-npm-4.2.0-15fbdebcf4-3.zip/node_modules/lodash.templatesettings/",
+          "packageDependencies": [
+            ["lodash.templatesettings", "npm:4.2.0"],
+            ["lodash._reinterpolate", "npm:3.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -13426,6 +13603,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["parse5", [
+        ["npm:3.0.3", {
+          "packageLocation": "./.yarn/cache/parse5-npm-3.0.3-fb7c9e4969-3.zip/node_modules/parse5/",
+          "packageDependencies": [
+            ["parse5", "npm:3.0.3"],
+            ["@types/node", "npm:8.10.60"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:5.1.1", {
           "packageLocation": "./.yarn/cache/parse5-npm-5.1.1-8e63d82cff-3.zip/node_modules/parse5/",
           "packageDependencies": [
@@ -14485,6 +14670,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["loose-envify", "npm:1.4.0"],
             ["object-assign", "npm:4.1.1"],
             ["react-is", "npm:16.13.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["proper-lockfile", [
+        ["npm:4.1.1", {
+          "packageLocation": "./.yarn/cache/proper-lockfile-npm-4.1.1-a2ba736357-3.zip/node_modules/proper-lockfile/",
+          "packageDependencies": [
+            ["proper-lockfile", "npm:4.1.1"],
+            ["graceful-fs", "npm:4.2.4"],
+            ["retry", "npm:0.12.0"],
+            ["signal-exit", "npm:3.0.3"]
           ],
           "linkType": "HARD",
         }]
@@ -16976,6 +17173,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["stringify-object", [
+        ["npm:3.3.0", {
+          "packageLocation": "./.yarn/cache/stringify-object-npm-3.3.0-3e6784f7df-3.zip/node_modules/stringify-object/",
+          "packageDependencies": [
+            ["stringify-object", "npm:3.3.0"],
+            ["get-own-enumerable-property-symbols", "npm:3.0.2"],
+            ["is-obj", "npm:1.0.1"],
+            ["is-regexp", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["strip-ansi", [
         ["npm:3.0.1", {
           "packageLocation": "./.yarn/cache/strip-ansi-npm-3.0.1-6aec1365b9-3.zip/node_modules/strip-ansi/",
@@ -17030,6 +17239,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/strip-bom-npm-4.0.0-97d367a64d-3.zip/node_modules/strip-bom/",
           "packageDependencies": [
             ["strip-bom", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["strip-comments", [
+        ["npm:1.0.2", {
+          "packageLocation": "./.yarn/cache/strip-comments-npm-1.0.2-4cd3f42d10-3.zip/node_modules/strip-comments/",
+          "packageDependencies": [
+            ["strip-comments", "npm:1.0.2"],
+            ["babel-extract-comments", "npm:1.0.0"],
+            ["babel-plugin-transform-object-rest-spread", "npm:6.26.0"]
           ],
           "linkType": "HARD",
         }]
@@ -18641,6 +18861,179 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/word-wrap-npm-1.2.3-7fb15ab002-3.zip/node_modules/word-wrap/",
           "packageDependencies": [
             ["word-wrap", "npm:1.2.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-background-sync", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-background-sync-npm-4.3.1-5c91845142-3.zip/node_modules/workbox-background-sync/",
+          "packageDependencies": [
+            ["workbox-background-sync", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-broadcast-update", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-broadcast-update-npm-4.3.1-59d33d652a-3.zip/node_modules/workbox-broadcast-update/",
+          "packageDependencies": [
+            ["workbox-broadcast-update", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-build", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-build-npm-4.3.1-3648f499b8-3.zip/node_modules/workbox-build/",
+          "packageDependencies": [
+            ["workbox-build", "npm:4.3.1"],
+            ["@babel/runtime", "npm:7.10.2"],
+            ["@hapi/joi", "npm:15.1.1"],
+            ["common-tags", "npm:1.8.0"],
+            ["fs-extra", "npm:4.0.3"],
+            ["glob", "npm:7.1.6"],
+            ["lodash.template", "npm:4.5.0"],
+            ["pretty-bytes", "npm:5.3.0"],
+            ["stringify-object", "npm:3.3.0"],
+            ["strip-comments", "npm:1.0.2"],
+            ["workbox-background-sync", "npm:4.3.1"],
+            ["workbox-broadcast-update", "npm:4.3.1"],
+            ["workbox-cacheable-response", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"],
+            ["workbox-expiration", "npm:4.3.1"],
+            ["workbox-google-analytics", "npm:4.3.1"],
+            ["workbox-navigation-preload", "npm:4.3.1"],
+            ["workbox-precaching", "npm:4.3.1"],
+            ["workbox-range-requests", "npm:4.3.1"],
+            ["workbox-routing", "npm:4.3.1"],
+            ["workbox-strategies", "npm:4.3.1"],
+            ["workbox-streams", "npm:4.3.1"],
+            ["workbox-sw", "npm:4.3.1"],
+            ["workbox-window", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-cacheable-response", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-cacheable-response-npm-4.3.1-3b8edb521c-3.zip/node_modules/workbox-cacheable-response/",
+          "packageDependencies": [
+            ["workbox-cacheable-response", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-core", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-core-npm-4.3.1-d7028ca511-3.zip/node_modules/workbox-core/",
+          "packageDependencies": [
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-expiration", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-expiration-npm-4.3.1-c09938e21a-3.zip/node_modules/workbox-expiration/",
+          "packageDependencies": [
+            ["workbox-expiration", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-google-analytics", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-google-analytics-npm-4.3.1-07f74761e9-3.zip/node_modules/workbox-google-analytics/",
+          "packageDependencies": [
+            ["workbox-google-analytics", "npm:4.3.1"],
+            ["workbox-background-sync", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"],
+            ["workbox-routing", "npm:4.3.1"],
+            ["workbox-strategies", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-navigation-preload", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-navigation-preload-npm-4.3.1-0b2a0532fb-3.zip/node_modules/workbox-navigation-preload/",
+          "packageDependencies": [
+            ["workbox-navigation-preload", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-precaching", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-precaching-npm-4.3.1-a652d12001-3.zip/node_modules/workbox-precaching/",
+          "packageDependencies": [
+            ["workbox-precaching", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-range-requests", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-range-requests-npm-4.3.1-ee74215434-3.zip/node_modules/workbox-range-requests/",
+          "packageDependencies": [
+            ["workbox-range-requests", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-routing", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-routing-npm-4.3.1-a9e2315591-3.zip/node_modules/workbox-routing/",
+          "packageDependencies": [
+            ["workbox-routing", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-strategies", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-strategies-npm-4.3.1-43d00ab27b-3.zip/node_modules/workbox-strategies/",
+          "packageDependencies": [
+            ["workbox-strategies", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-streams", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-streams-npm-4.3.1-4fe2e44247-3.zip/node_modules/workbox-streams/",
+          "packageDependencies": [
+            ["workbox-streams", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-sw", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-sw-npm-4.3.1-b882a7aea3-3.zip/node_modules/workbox-sw/",
+          "packageDependencies": [
+            ["workbox-sw", "npm:4.3.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["workbox-window", [
+        ["npm:4.3.1", {
+          "packageLocation": "./.yarn/cache/workbox-window-npm-4.3.1-59a91689de-3.zip/node_modules/workbox-window/",
+          "packageDependencies": [
+            ["workbox-window", "npm:4.3.1"],
+            ["workbox-core", "npm:4.3.1"]
           ],
           "linkType": "HARD",
         }]
