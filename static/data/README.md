@@ -1,2 +1,2 @@
-Data in this directory aren't covered by the code license. The author doesn't
-own these data.
+Data in this directory aren't covered by the code license. The code author
+doesn't own these data.
