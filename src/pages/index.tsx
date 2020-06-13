@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import QuestList from '../components/QuestList';
 import UnitEquipList from '../components/UnitEquipList';
 import UnitList from '../components/UnitList';
+import Wrapper from '../components/Wrapper';
 
 const Title = styled('h1')`
   font-size: 28px;
@@ -78,30 +79,32 @@ interface Props {
 
 export default function Index(props: Props) {
   return (
-    <Ui>
-      <Title>{props.data.site.siteMetadata.title}</Title>
-      <Layout>
-        <UnitList />
-        <React.Suspense fallback={<div>Loading equipment info...</div>}>
-          <UnitEquipList />
-          <div>
-            <BaseIngredientList />
-            <React.Suspense fallback={<div>Loading quest info...</div>}>
-              <QuestList />
-            </React.Suspense>
-          </div>
-        </React.Suspense>
-      </Layout>
-      <Footer>
-        <p>
-          This is a fan site of the game <cite>Princess Connect! Re:Dive</cite>.
-          {' '}
-          <a href="https://priconne-redive.jp">
-            See the official website (Japanese).
-          </a>
-        </p>
-      </Footer>
-    </Ui>
+    <Wrapper region="jp">
+      <Ui>
+        <Title>{props.data.site.siteMetadata.title}</Title>
+        <Layout>
+          <UnitList />
+          <React.Suspense fallback={<div>Loading equipment info...</div>}>
+            <UnitEquipList />
+            <div>
+              <BaseIngredientList />
+              <React.Suspense fallback={<div>Loading quest info...</div>}>
+                <QuestList />
+              </React.Suspense>
+            </div>
+          </React.Suspense>
+        </Layout>
+        <Footer>
+          <p>
+            This is a fan site of the game <cite>Princess Connect! Re:Dive</cite>.
+            {' '}
+            <a href="https://priconne-redive.jp">
+              See the official website (Japanese).
+            </a>
+          </p>
+        </Footer>
+      </Ui>
+    </Wrapper>
   );
 }
 
