@@ -3,11 +3,12 @@ import { useObserver } from 'mobx-react-lite';
 import { Instance } from 'mobx-state-tree';
 import React from 'react';
 
-import units, { getEquipsForRank } from '../resources/units';
+import { getEquipsForRank } from '../resources/units';
 import { Unit } from '../state';
 
 import EquipIcon from './EquipIcon';
 import UnitIcon from './UnitIcon';
+import { useResource } from './Wrapper';
 
 const Wrapper = styled('li')`
   display: grid;
@@ -48,12 +49,12 @@ interface Props {
 export default function UnitEquips(props: Props) {
   const { unit } = props;
   const id = useObserver(() => unit.id);
-  const unitData = units.get();
+  const unitData = useResource('unit').get();
   const unitDetail = unitData.get(id);
   const name = unitDetail?.name ?? '';
   const availableRanks = unitDetail?.equips.length ?? 1;
   const [rankFrom, equipDataFrom] = useObserver(() => {
-    const equipIds = getEquipsForRank(unit.id, unit.rankFrom) || [];
+    const equipIds = getEquipsForRank(unit.id, unit.rankFrom, unitData) || [];
     const data = equipIds.map((id, idx) => ({
       id,
       active: unit.equipFrom[idx],
@@ -61,7 +62,7 @@ export default function UnitEquips(props: Props) {
     return [unit.rankFrom, data];
   });
   const [rankTo, equipDataTo] = useObserver(() => {
-    const equipIds = getEquipsForRank(unit.id, unit.rankTo) || [];
+    const equipIds = getEquipsForRank(unit.id, unit.rankTo, unitData) || [];
     const data = equipIds.map((id, idx) => ({
       id,
       active: unit.equipTo[idx],

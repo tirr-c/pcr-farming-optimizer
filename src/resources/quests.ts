@@ -76,35 +76,36 @@ export function calculateDrops(quest: Quest): DropData[][] {
   ));
 }
 
-interface QuestMaps {
+export interface QuestMaps {
   idQuestMap: Map<string, Quest>;
   equipQuestMap: Map<string, string[]>;
 }
 
-const quests = new RemoteResource<QuestMaps>(async () => {
-  const resp = await fetch(withPrefix('/data/quest.json'));
-  const questData: Quest[] = (await resp.json()).$data;
-  const idQuestMap = new Map(questData.map(quest => [quest.id, quest]));
-  const equipQuestMap = new Map<string, string[]>();
-  for (const quest of questData) {
-    const drops = calculateDrops(quest);
-    const equipments = drops
-      .flat()
-      .map(drop => drop.reward)
-      .filter(reward => reward.type === 'equipment') as RewardEquipment[];
-    const id = quest.id;
-    for (const { id: equipmentId } of equipments) {
-      const quests = equipQuestMap.get(equipmentId) ?? [];
-      quests.push(id);
-      equipQuestMap.set(equipmentId, quests);
+export function loadQuests(region: string): RemoteResource<QuestMaps> {
+  return new RemoteResource<QuestMaps>(async () => {
+    const resp = await fetch(withPrefix(`/data/${region}/quest.json`));
+    const questData: Quest[] = (await resp.json()).$data;
+    const idQuestMap = new Map(questData.map(quest => [quest.id, quest]));
+    const equipQuestMap = new Map<string, string[]>();
+    for (const quest of questData) {
+      const drops = calculateDrops(quest);
+      const equipments = drops
+        .flat()
+        .map(drop => drop.reward)
+        .filter(reward => reward.type === 'equipment') as RewardEquipment[];
+      const id = quest.id;
+      for (const { id: equipmentId } of equipments) {
+        const quests = equipQuestMap.get(equipmentId) ?? [];
+        quests.push(id);
+        equipQuestMap.set(equipmentId, quests);
+      }
     }
-  }
-  return {
-    idQuestMap,
-    equipQuestMap,
-  };
-});
-export default quests;
+    return {
+      idQuestMap,
+      equipQuestMap,
+    };
+  });
+}
 
 function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>) {
   const dropData = calculateDrops(quest);
@@ -141,18 +142,15 @@ export interface Multipliers {
 }
 
 export interface RankQuestsOptions {
-  questMaps?: QuestMaps;
+  questMaps: QuestMaps;
   multipliers?: Multipliers;
 }
 
 export function rankQuests(
   equipmentIdMap: Map<string, number>,
-  options: RankQuestsOptions = {},
+  options: RankQuestsOptions,
 ): { id: string; score: number }[] {
   let questMaps = options.questMaps;
-  if (questMaps == null) {
-    questMaps = quests.get();
-  }
   const {
     normal: normalMultiplier = 1,
     hard: hardMultiplier = 1,

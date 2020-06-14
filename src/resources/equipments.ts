@@ -16,21 +16,20 @@ export interface Equipment {
   } | null;
 }
 
-const equipments = new RemoteResource(async () => {
-  const resp = await fetch(withPrefix('/data/equipment.json'));
-  const data: Equipment[] = (await resp.json()).$data;
-  return new Map(data.map(eq => [eq.id, eq]));
-});
-export default equipments;
+export function loadEquipments(
+  region: string,
+): RemoteResource<Map<string, Equipment>> {
+  return new RemoteResource(async () => {
+    const resp = await fetch(withPrefix(`/data/${region}/equipment.json`));
+    const data: Equipment[] = (await resp.json()).$data;
+    return new Map(data.map(eq => [eq.id, eq]));
+  });
+}
 
 export function computeBaseIngredients(
   equipmentIds: string[],
-  equipmentData?: Map<string, Equipment>,
+  equipmentData: Map<string, Equipment>,
 ): Map<string, number> {
-  if (equipmentData == null) {
-    equipmentData = equipments.get();
-  }
-
   const ret = new Map();
   let queue = new Map<string, number>();
   for (const equip of equipmentIds) {

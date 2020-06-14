@@ -2,10 +2,10 @@ import styled from 'astroturf';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
-import units from '../resources/units';
 import { useStateContext } from '../state';
 
 import UnitIcon from './UnitIcon';
+import { useResource } from './Wrapper';
 
 const TitleAnchor = styled('a')`
   text-decoration: none;
@@ -42,7 +42,7 @@ const UnitListWrapper = styled('ul')<{ open?: boolean }>`
 `;
 
 export default function UnitList() {
-  const unitData = units.get();
+  const unitData = useResource('unit').get();
   const [isOpen, setOpen] = React.useState(true);
   const handleTitleClick = React.useCallback(() => setOpen(open => !open), []);
   return (

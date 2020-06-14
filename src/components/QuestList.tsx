@@ -2,12 +2,11 @@ import styled from 'astroturf';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
-import equipments from '../resources/equipments';
-import units from '../resources/units';
 import { Multipliers, rankQuests } from '../resources/quests';
 import { useStateContext } from '../state';
 
 import Quest from './Quest';
+import { useResource } from './Wrapper';
 
 const Title = styled('h2')`
   margin-top: 16px;
@@ -38,15 +37,16 @@ export default function QuestList() {
     val => val,
   );
 
-  const unitData = units.get();
-  const equipmentData = equipments.get();
+  const unitData = useResource('unit').get();
+  const equipmentData = useResource('equipment').get();
+  const questMaps = useResource('quest').get();
   const rootState = useStateContext();
   const equipmentIdMap = useObserver(
     () => rootState.allBaseIngredientsExcludedWithResource(unitData, equipmentData)
   );
   const quests = React.useMemo(
-    () => rankQuests(equipmentIdMap, { multipliers }),
-    [equipmentIdMap, multipliers],
+    () => rankQuests(equipmentIdMap, { questMaps, multipliers }),
+    [equipmentIdMap, questMaps, multipliers],
   );
 
   const handleLoadMore = React.useCallback(() => {

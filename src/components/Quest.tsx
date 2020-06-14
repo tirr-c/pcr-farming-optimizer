@@ -2,13 +2,12 @@ import styled from 'astroturf';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
-import equipments from '../resources/equipments';
-import units from '../resources/units';
-import quests, { calculateDrops } from '../resources/quests';
+import { calculateDrops } from '../resources/quests';
 import { useStateContext } from '../state';
 
 import EquipIcon from './EquipIcon';
 import Icon from './Icon';
+import { useResource } from './Wrapper';
 
 const AreaId = styled('div')`
   display: flex;
@@ -49,9 +48,9 @@ const difficulties = [, 'N', 'H', 'VH'];
 
 export default function Quest(props: Props) {
   const { id } = props;
-  const unitData = units.get();
-  const equipmentData = equipments.get();
-  const { idQuestMap } = quests.get();
+  const unitData = useResource('unit').get();
+  const equipmentData = useResource('equipment').get();
+  const { idQuestMap } = useResource('quest').get();
   const quest = idQuestMap.get(id);
   if (quest == null) {
     return null;

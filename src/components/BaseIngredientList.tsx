@@ -3,10 +3,9 @@ import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
 import { useStateContext } from '../state';
-import units from '../resources/units';
-import equipments from '../resources/equipments';
 
 import EquipIcon from './EquipIcon';
+import { useResource } from './Wrapper';
 
 const Title = styled('h2')<{ open?: boolean }>`
   margin-bottom: 12px;
@@ -34,8 +33,8 @@ const EquipCount = styled('span')`
 `;
 
 export default function BaseIngredientList() {
-  const unitData = units.get();
-  const equipmentData = equipments.get();
+  const unitData = useResource('unit').get();
+  const equipmentData = useResource('equipment').get();
   const rootState = useStateContext();
   const baseIngredients = useObserver(
     () => rootState.allBaseIngredientsWithResource(unitData, equipmentData),
@@ -100,7 +99,7 @@ export default function BaseIngredientList() {
 
 function InteractiveEquipIcon(props: { id: string; count: number }) {
   const { id, count } = props;
-  const equipmentData = equipments.get();
+  const equipmentData = useResource('equipment').get();
   const rootState = useStateContext();
   const active = useObserver(() => !rootState.excludedEquips.has(id));
   const handleChange = React.useCallback(value => {
