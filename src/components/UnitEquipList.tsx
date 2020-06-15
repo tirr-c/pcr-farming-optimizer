@@ -6,6 +6,7 @@ import React from 'react';
 import { useStateContext } from '../state';
 
 import UnitEquips from './UnitEquips';
+import { useResource } from './Wrapper';
 
 const Title = styled('h2')`
   margin-bottom: 12px;
@@ -17,17 +18,23 @@ const Description = styled('p')`
   margin-bottom: 24px;
 `;
 
-const Wrapper = styled('ul')`
+const Wrapper = styled('ul')<{ pending?: boolean }>`
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
   justify-content: center;
   grid-gap: 16px;
   gap: 16px;
+
+  &.pending {
+    opacity: 0.5;
+    transition: opacity 0.2s 0.1s;
+  }
 `;
 
 export default function UnitEquipList() {
   const intl = useIntl();
   const rootState = useStateContext();
+  const pending = useResource('pending');
   const units = useObserver(() => (
     [...rootState.units.values()]
       .map(unit => ({
@@ -44,7 +51,7 @@ export default function UnitEquipList() {
           { count: units.length },
         )}
       </Description>
-      <Wrapper>
+      <Wrapper pending={pending}>
         {units.map(({ id, unit }) => <UnitEquips key={id} unit={unit} />)}
       </Wrapper>
     </section>

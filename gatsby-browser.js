@@ -3,8 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'mobx-react-lite/batchingForReactDom';
 
-import './src/reset.css';
+import Wrapper from './src/components/Wrapper';
 import { StateProvider, Root } from './src/state';
+
+import './src/reset.css';
 
 if (!Intl.DisplayNames) {
   require('@formatjs/intl-displaynames/polyfill');
@@ -30,3 +32,11 @@ export function wrapRootElement({ element }) {
     element,
   );
 };
+
+export function wrapPageElement({ element }) {
+  return React.createElement(
+    Wrapper,
+    {},
+    element,
+  );
+}

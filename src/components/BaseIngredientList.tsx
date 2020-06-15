@@ -18,7 +18,7 @@ const Description = styled('p')`
   margin-bottom: 24px;
 `;
 
-const EquipGrid = styled('ul')`
+const EquipGrid = styled('ul')<{ pending?: boolean }>`
   display: grid;
   max-width: 48px * 10;
   margin: 0 auto;
@@ -27,6 +27,11 @@ const EquipGrid = styled('ul')`
   grid-auto-rows: 48px;
   grid-gap: 0;
   gap: 0;
+
+  &.pending {
+    opacity: 0.5;
+    transition: opacity 0.2s 0.1s;
+  }
 `;
 
 const EquipCount = styled('span')`
@@ -36,6 +41,7 @@ const EquipCount = styled('span')`
 export default function BaseIngredientList() {
   const unitData = useResource('unit').get();
   const equipmentData = useResource('equipment').get();
+  const pending = useResource('pending');
   const rootState = useStateContext();
   const baseIngredients = useObserver(
     () => rootState.allBaseIngredientsWithResource(unitData, equipmentData),
@@ -95,7 +101,7 @@ export default function BaseIngredientList() {
     <section>
       <Title>{title}</Title>
       <Description>{description}</Description>
-      <EquipGrid>
+      <EquipGrid pending={pending}>
         {icons}
       </EquipGrid>
     </section>

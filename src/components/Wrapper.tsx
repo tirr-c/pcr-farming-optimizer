@@ -9,32 +9,41 @@ import RemoteResource from '../utils/RemoteResource';
 
 const LOCAL_STORAGE_KEY = 'farming-optimizer-snapshot';
 
-const ResourceContext = React.createContext<ResourceContextType | null>(null);
+const ResourceContext = React.createContext<ResourceContextType>({
+  unit: RemoteResource.empty,
+  equipment: RemoteResource.empty,
+  quest: RemoteResource.empty,
+  pending: false,
+  load() {},
+});
 
 interface ResourceContextType {
   unit: RemoteResource<Map<string, Unit>>;
   equipment: RemoteResource<Map<string, Equipment>>;
   quest: RemoteResource<QuestMaps>;
   pending: boolean;
+  load(region: string): void;
 }
 
 interface Props {
-  region: string;
   children?: React.ReactNode;
 }
 
 export default function Wrapper(props: Props) {
-  const { children, region } = props;
-  const [resources, setResources] = React.useState(() => ({
-    unit: loadUnits(region),
-    equipment: loadEquipments(region),
-    quest: loadQuests(region),
-    region,
-  }));
-  const [startTransition, isPending] = (React as any).unstable_useTransition({ timeoutMs: 2000 });
+  const { children } = props;
+  const [resources, setResources] = React.useState<Pick<ResourceContextType, 'unit' | 'equipment' | 'quest'>>({
+    unit: RemoteResource.empty,
+    equipment: RemoteResource.empty,
+    quest: RemoteResource.empty,
+  });
+  const [region, setRegion] = React.useState('');
+  const [startTransition, isPending] = (React as any).unstable_useTransition({ timeoutMs: 1000 });
 
   const rootState = useStateContext();
   React.useEffect(() => {
+    if (region === '') {
+      return;
+    }
     const storageKey = `${LOCAL_STORAGE_KEY}.${region}`;
     try {
       let savedSnapshotRaw = window.localStorage.getItem(storageKey);
@@ -66,25 +75,24 @@ export default function Wrapper(props: Props) {
     return dispose;
   }, [rootState, region]);
 
-  React.useEffect(() => {
-    if (resources.region === region) {
+  const load = React.useCallback((newRegion: string) => {
+    if (region === newRegion) {
       return;
     }
     startTransition(() => {
       setResources({
-        unit: loadUnits(region),
-        equipment: loadEquipments(region),
-        quest: loadQuests(region),
-        region,
+        unit: loadUnits(newRegion),
+        equipment: loadEquipments(newRegion),
+        quest: loadQuests(newRegion),
       });
+      setRegion(newRegion);
     });
   }, [region]);
 
   const contextValue = {
-    unit: resources.unit,
-    equipment: resources.equipment,
-    quest: resources.quest,
+    ...resources,
     pending: isPending,
+    load,
   };
   return (
     <ResourceContext.Provider value={contextValue}>
@@ -97,8 +105,5 @@ export function useResource<ResourceType extends keyof ResourceContextType>(
   type: ResourceType,
 ): ResourceContextType[ResourceType] {
   const ctx = React.useContext(ResourceContext);
-  if (ctx == null) {
-    throw new Error();
-  }
   return ctx[type];
 }

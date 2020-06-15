@@ -28,7 +28,7 @@ const Title = styled('h2')<{ open?: boolean }>`
   }
 `;
 
-const UnitListWrapper = styled('ul')<{ open?: boolean }>`
+const UnitListWrapper = styled('ul')<{ open?: boolean, pending?: boolean }>`
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 64px);
   grid-auto-rows: 64px;
@@ -40,10 +40,16 @@ const UnitListWrapper = styled('ul')<{ open?: boolean }>`
   &.open {
     display: grid;
   }
+
+  &.pending {
+    opacity: 0.5;
+    transition: opacity 0.2s 0.1s;
+  }
 `;
 
 export default function UnitList() {
   const unitData = useResource('unit').get();
+  const pending = useResource('pending');
   const intl = useIntl();
   const [isOpen, setOpen] = React.useState(true);
   const handleTitleClick = React.useCallback(() => setOpen(open => !open), []);
@@ -52,7 +58,7 @@ export default function UnitList() {
       <TitleAnchor onClick={handleTitleClick}>
         <Title open={isOpen}>{intl.formatMessage({ id: 'characters.title' })}</Title>
       </TitleAnchor>
-      <UnitListWrapper open={isOpen}>
+      <UnitListWrapper open={isOpen} pending={pending}>
         {[...unitData.values()].map(unit => {
           return (
             <UnitItem

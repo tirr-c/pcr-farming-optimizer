@@ -16,9 +16,14 @@ const Title = styled('h2')`
   font-weight: bold;
 `;
 
-const List = styled('ul')`
+const List = styled('ul')<{ pending?: boolean }>`
   > * + * {
     margin-top: 12px;
+  }
+
+  &.pending {
+    opacity: 0.5;
+    transition: opacity 0.2s 0.1s;
   }
 `;
 
@@ -42,6 +47,7 @@ export default function QuestList() {
   const unitData = useResource('unit').get();
   const equipmentData = useResource('equipment').get();
   const questMaps = useResource('quest').get();
+  const pending = useResource('pending');
   const rootState = useStateContext();
   const equipmentIdMap = useObserver(
     () => rootState.allBaseIngredientsExcludedWithResource(unitData, equipmentData)
@@ -103,7 +109,7 @@ export default function QuestList() {
           </label>
         ))}
       </div>
-      <List>
+      <List pending={pending}>
         {quests.slice(0, limit).map(({ id, score }) => (
           <Quest key={id} id={id} score={score} />
         ))}

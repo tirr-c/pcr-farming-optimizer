@@ -33,5 +33,8 @@ export default class RemoteResource<Data> {
     if (this.state.type === 'error') {
       throw this.state.error;
     }
+    throw this.inner;
   }
+
+  static empty: RemoteResource<never> = new RemoteResource(() => Promise.race([]));
 }
