@@ -16,7 +16,7 @@ export default function Index() {
   }
   return (
     <Wrapper region={region}>
-      <Layout region={region}>
+      <Layout>
         <UnitList />
         <React.Suspense fallback={<section>{intl.formatMessage({ id: 'loading.equipments' })}</section>}>
           <UnitEquipList />

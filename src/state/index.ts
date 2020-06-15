@@ -143,13 +143,10 @@ export const Root = types
 
 export type RootType = Instance<typeof Root>;
 
-const Context = React.createContext<RootType | null>(null);
+const defaultState = Root.create({});
+const Context = React.createContext<RootType>(defaultState);
 export const StateProvider = Context.Provider;
 
 export function useStateContext(): RootType {
-  const state = React.useContext(Context);
-  if (state == null) {
-    throw new Error('Root state not initialized');
-  }
-  return state;
+  return React.useContext(Context);
 }
