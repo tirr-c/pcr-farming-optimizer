@@ -1289,6 +1289,58 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@formatjs/intl-displaynames@npm:^1.2.0":
+  version: 1.2.10
+  resolution: "@formatjs/intl-displaynames@npm:1.2.10"
+  dependencies:
+    "@formatjs/intl-utils": ^2.3.0
+  checksum: 3/3cdc62610b9f0d5af29b7076d07f896bd44ee05f001d2f1cb121858ecd52b30c4ff90b6de5836d1ba20caf3e574937bb03b5eee18e46583893b9f20065f5269f
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl-listformat@npm:^1.4.1":
+  version: 1.4.8
+  resolution: "@formatjs/intl-listformat@npm:1.4.8"
+  dependencies:
+    "@formatjs/intl-utils": ^2.3.0
+  checksum: 3/00e6192831b2a5da0ed616a85052947f42bea92732aa30655414edc97b39f05806398ee0a9b6995f9ef14a16007c8503571c534d6f3c297c1f24d6dee4b3416b
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl-pluralrules@npm:^1.5.2":
+  version: 1.5.9
+  resolution: "@formatjs/intl-pluralrules@npm:1.5.9"
+  dependencies:
+    "@formatjs/intl-utils": ^2.3.0
+  checksum: 3/3f480576bfac1266c845f47cb32593837b427a29f6158e586cd747c74c5425c4bcd2b6e75c7f343ce42758934ccbc75815ed7f1dea06276081a0fb38ef8a84b1
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl-relativetimeformat@npm:^4.5.9":
+  version: 4.5.16
+  resolution: "@formatjs/intl-relativetimeformat@npm:4.5.16"
+  dependencies:
+    "@formatjs/intl-utils": ^2.3.0
+  checksum: 3/acf9e6462e75e83ce99d5d776647cc9592e23e0d60a96f56b7cd9cdb757e06ed6faf4c96b7eac45f2fc2c9f5012c9fd460e2ae6923f9a9fdf475b8a0b8fff5a7
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl-unified-numberformat@npm:^3.2.0":
+  version: 3.3.7
+  resolution: "@formatjs/intl-unified-numberformat@npm:3.3.7"
+  dependencies:
+    "@formatjs/intl-utils": ^2.3.0
+  checksum: 3/3cbf53bb92e6eb55a7b21e07b490c8f6fce858b5a2d76a39a6c2188f0b206905a9813bdd0b10afe58bf7509ce2add775340abeebc5d2b016a5584e191f0e84d3
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl-utils@npm:^2.2.0, @formatjs/intl-utils@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "@formatjs/intl-utils@npm:2.3.0"
+  checksum: 3/2e71108c6a3c4bda97feb398d7f32140b50f9df74f582a9f1e94f2a6df680f6ad1098cd1e35c31cca5c134a61fb8c96f0f75ce0f329676c555ffa3a46f54e451
+  languageName: node
+  linkType: hard
+
 "@hapi/address@npm:2.x.x":
   version: 2.1.4
   resolution: "@hapi/address@npm:2.1.4"
@@ -1630,10 +1682,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
+  dependencies:
+    "@types/react": "*"
+    hoist-non-react-statics: ^3.3.0
+  checksum: 3/16ab4c45d4920fa378c8be76554b10061247fc04d2c8af11bdb7d520b3967e9c06d7ad5efd9b0f1657fbc4d095f62c6e1325f03b9141eb1ef2c8095b96fd42f8
+  languageName: node
+  linkType: hard
+
 "@types/http-cache-semantics@npm:*":
   version: 4.0.0
   resolution: "@types/http-cache-semantics@npm:4.0.0"
   checksum: 3/e16fae56d4daea4ed678b4d5918b693b44ca12fb5e479b87d242d3a35bf3a014974dcf9ed7aba7e29149fdb6c3719f9987fca51b20ef10aa84b58f86553c2f74
+  languageName: node
+  linkType: hard
+
+"@types/invariant@npm:^2.2.31":
+  version: 2.2.33
+  resolution: "@types/invariant@npm:2.2.33"
+  checksum: 3/ef8300fe00c2f5d4781ffa52af1624d18ccdfce7e87006da4ad38f2a84362cdf30bbf0489203464539efbb04a5083acb7f66bcd2e244315d1a6dcba7cb18336b
   languageName: node
   linkType: hard
 
@@ -3360,6 +3429,13 @@ __metadata:
   version: 1.1.0
   resolution: "brorand@npm:1.1.0"
   checksum: 3/4536dd73f07f6884d89c09c906345b606abff477e87babef64a85656e8cf12b1c5f40d06313b91dac12bf3e031ac190b5d548f2c3bf75f655344c3fcf90cbc8a
+  languageName: node
+  linkType: hard
+
+"browser-lang@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "browser-lang@npm:0.1.0"
+  checksum: 3/49bc35974f487dc09d9a83b80a16f7d81b5b4dfbbe6855a015d96e016cf98302c8d0b82824ea90a7b8c3a28cb58000bf966eebb34079841ca38cee4ff3d8cf92
   languageName: node
   linkType: hard
 
@@ -6416,6 +6492,7 @@ __metadata:
     astroturf: ^0.10.4
     gatsby: ^2.21.21
     gatsby-plugin-astroturf: ^0.2.1
+    gatsby-plugin-intl: ^0.3.3
     gatsby-plugin-offline: ^3.2.8
     gatsby-plugin-react-helmet: ^3.3.1
     gatsby-plugin-sass: ^2.3.1
@@ -7076,6 +7153,22 @@ fsevents@~2.1.2:
     astroturf: "*"
     gatsby: ">=2"
   checksum: 3/527c7b55b12cc9c73bfe3c97cfe16a020fe4349e9ff3b22eb96efa1d8e9f89e0d4eb6c98b1af4d5477ba1d49fb23f0a977e349476ff3f8b6a5bfb79207ae52c1
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-intl@npm:^0.3.3":
+  version: 0.3.3
+  resolution: "gatsby-plugin-intl@npm:0.3.3"
+  dependencies:
+    "@babel/runtime": ^7.8.4
+    "@formatjs/intl-pluralrules": ^1.5.2
+    "@formatjs/intl-relativetimeformat": ^4.5.9
+    browser-lang: ^0.1.0
+    intl: ^1.2.5
+    react-intl: ^3.12.0
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: 3/f3af1b25930f05fdba08d72e65e678ad12e52a2f15d18cfdf95848089e8ff2cfce4ef2a14d055e0e30ca0cd7817c8b2910b63a62665286c5ddd3b0a65ac42dc8
   languageName: node
   linkType: hard
 
@@ -8188,7 +8281,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.3.0":
+"hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -8839,6 +8932,39 @@ fsevents@~2.1.2:
     has: ^1.0.3
     side-channel: ^1.0.2
   checksum: 3/02b2bcc612fbbaa5de71acec354a7bb50d8b3b2d2df775b6df61ea41419f92b69e0562f80125d7fa3667c9fb485cc88726f8a181fb544d880c79564f0f7d7d1e
+  languageName: node
+  linkType: hard
+
+"intl-format-cache@npm:^4.2.21":
+  version: 4.2.38
+  resolution: "intl-format-cache@npm:4.2.38"
+  checksum: 3/7facc35c3b5aa3cec08c58c789b3349a58c0211451523e24600f05cc3b0dadd99baef3617ed858c31f3d3bb68b2d1220dd2528d9eaddd89d07e53ab0fe70a598
+  languageName: node
+  linkType: hard
+
+"intl-messageformat-parser@npm:^3.6.4":
+  version: 3.6.4
+  resolution: "intl-messageformat-parser@npm:3.6.4"
+  dependencies:
+    "@formatjs/intl-unified-numberformat": ^3.2.0
+  checksum: 3/6fc17e75f8570ea20c5bbf2dbd15a34c94c8acb71ffd4e5fa35af67b6fd0baa3aab7c89fe0e864b1f330e249e16a0accde837b57569264dcf1cb8575c566fc5f
+  languageName: node
+  linkType: hard
+
+"intl-messageformat@npm:^7.8.4":
+  version: 7.8.4
+  resolution: "intl-messageformat@npm:7.8.4"
+  dependencies:
+    intl-format-cache: ^4.2.21
+    intl-messageformat-parser: ^3.6.4
+  checksum: 3/c5374b1aec692546873388133b4c684372788c932c55cc31a3978ea9a2a0f1302e6a45cc7eb496dc722b2394daf42d8439915f1bfb756bbb3350cc8315215b04
+  languageName: node
+  linkType: hard
+
+"intl@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "intl@npm:1.2.5"
+  checksum: 3/8fc0b27ce873d865f90bf2e32428b80345e3d91fb2cef7732cfeb6b10c1a83482e4e73c68af48d1dc4eb407a49fc81f1beef34161db7e284259957d3e4fa1aae
   languageName: node
   linkType: hard
 
@@ -13276,6 +13402,28 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"react-intl@npm:^3.12.0":
+  version: 3.12.1
+  resolution: "react-intl@npm:3.12.1"
+  dependencies:
+    "@formatjs/intl-displaynames": ^1.2.0
+    "@formatjs/intl-listformat": ^1.4.1
+    "@formatjs/intl-relativetimeformat": ^4.5.9
+    "@formatjs/intl-unified-numberformat": ^3.2.0
+    "@formatjs/intl-utils": ^2.2.0
+    "@types/hoist-non-react-statics": ^3.3.1
+    "@types/invariant": ^2.2.31
+    hoist-non-react-statics: ^3.3.2
+    intl-format-cache: ^4.2.21
+    intl-messageformat: ^7.8.4
+    intl-messageformat-parser: ^3.6.4
+    shallow-equal: ^1.2.1
+  peerDependencies:
+    react: ^16.3.0
+  checksum: 3/13d035e8681d97438cb6ae93cf71261d83b0e2d06f09bed80603322f111666730d063dad62bcf2d2077f5a9ab87ef5080d6720a23f16a36f57a5873a4398ec93
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.12.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -14352,6 +14500,13 @@ fsevents@~2.1.2:
   version: 1.2.2
   resolution: "shallow-compare@npm:1.2.2"
   checksum: 3/40709b58510a9fb5177c216a51f1a6c91a9679254ee0549476d6817dc28707e3fe8ce27456cfebc8f05c87ed88ae71923731493c7d7df816b01ef4477b417bfe
+  languageName: node
+  linkType: hard
+
+"shallow-equal@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "shallow-equal@npm:1.2.1"
+  checksum: 3/5002ac4a3639e35782d3cb21073d48e1e4f85321cc54608f48b2331f6db6d54e4f4b44ed81ec4d75385ebe893e8286752b1e29595381e6adad72dd836f001b7f
   languageName: node
   linkType: hard
 

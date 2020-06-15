@@ -1,4 +1,5 @@
 import styled from 'astroturf';
+import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
@@ -25,6 +26,7 @@ const Wrapper = styled('ul')`
 `;
 
 export default function UnitEquipList() {
+  const intl = useIntl();
   const rootState = useStateContext();
   const units = useObserver(() => (
     [...rootState.units.values()]
@@ -35,9 +37,12 @@ export default function UnitEquipList() {
   ));
   return (
     <section>
-      <Title>Rank & Equipments</Title>
+      <Title>{intl.formatMessage({ id: 'rank-equipments.title' })}</Title>
       <Description>
-        {units.length === 0 ? 'No characters selected.' : 'Click the equipment icon to toggle.'}
+        {intl.formatMessage(
+          { id: 'rank-equipments.description' },
+          { count: units.length },
+        )}
       </Description>
       <Wrapper>
         {units.map(({ id, unit }) => <UnitEquips key={id} unit={unit} />)}

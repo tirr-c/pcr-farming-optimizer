@@ -58,6 +58,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.2.1"
       ],
       [
+        "gatsby-plugin-intl",
+        "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.3.3"
+      ],
+      [
         "gatsby-plugin-offline",
         "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8"
       ],
@@ -124,6 +128,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.10.4"],
             ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],
             ["gatsby-plugin-astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.2.1"],
+            ["gatsby-plugin-intl", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.3.3"],
             ["gatsby-plugin-offline", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8"],
             ["gatsby-plugin-react-helmet", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.3.1"],
             ["gatsby-plugin-sass", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.3.1"],
@@ -1696,6 +1701,65 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@formatjs/intl-displaynames", [
+        ["npm:1.2.10", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-displaynames-npm-1.2.10-0830e55d7f-3.zip/node_modules/@formatjs/intl-displaynames/",
+          "packageDependencies": [
+            ["@formatjs/intl-displaynames", "npm:1.2.10"],
+            ["@formatjs/intl-utils", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@formatjs/intl-listformat", [
+        ["npm:1.4.8", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-listformat-npm-1.4.8-867d0117ab-3.zip/node_modules/@formatjs/intl-listformat/",
+          "packageDependencies": [
+            ["@formatjs/intl-listformat", "npm:1.4.8"],
+            ["@formatjs/intl-utils", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@formatjs/intl-pluralrules", [
+        ["npm:1.5.9", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-pluralrules-npm-1.5.9-202cb4fde8-3.zip/node_modules/@formatjs/intl-pluralrules/",
+          "packageDependencies": [
+            ["@formatjs/intl-pluralrules", "npm:1.5.9"],
+            ["@formatjs/intl-utils", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@formatjs/intl-relativetimeformat", [
+        ["npm:4.5.16", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-relativetimeformat-npm-4.5.16-22bf0692e7-3.zip/node_modules/@formatjs/intl-relativetimeformat/",
+          "packageDependencies": [
+            ["@formatjs/intl-relativetimeformat", "npm:4.5.16"],
+            ["@formatjs/intl-utils", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@formatjs/intl-unified-numberformat", [
+        ["npm:3.3.7", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-unified-numberformat-npm-3.3.7-74d5182df9-3.zip/node_modules/@formatjs/intl-unified-numberformat/",
+          "packageDependencies": [
+            ["@formatjs/intl-unified-numberformat", "npm:3.3.7"],
+            ["@formatjs/intl-utils", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@formatjs/intl-utils", [
+        ["npm:2.3.0", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-utils-npm-2.3.0-10207395d1-3.zip/node_modules/@formatjs/intl-utils/",
+          "packageDependencies": [
+            ["@formatjs/intl-utils", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@hapi/address", [
         ["npm:2.1.4", {
           "packageLocation": "./.yarn/cache/@hapi-address-npm-2.1.4-8548124531-3.zip/node_modules/@hapi/address/",
@@ -2089,11 +2153,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@types/hoist-non-react-statics", [
+        ["npm:3.3.1", {
+          "packageLocation": "./.yarn/cache/@types-hoist-non-react-statics-npm-3.3.1-c0081332b2-3.zip/node_modules/@types/hoist-non-react-statics/",
+          "packageDependencies": [
+            ["@types/hoist-non-react-statics", "npm:3.3.1"],
+            ["@types/react", "npm:16.9.34"],
+            ["hoist-non-react-statics", "npm:3.3.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@types/http-cache-semantics", [
         ["npm:4.0.0", {
           "packageLocation": "./.yarn/cache/@types-http-cache-semantics-npm-4.0.0-000c9dc8e0-3.zip/node_modules/@types/http-cache-semantics/",
           "packageDependencies": [
             ["@types/http-cache-semantics", "npm:4.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/invariant", [
+        ["npm:2.2.33", {
+          "packageLocation": "./.yarn/cache/@types-invariant-npm-2.2.33-2ffe325dfe-3.zip/node_modules/@types/invariant/",
+          "packageDependencies": [
+            ["@types/invariant", "npm:2.2.33"]
           ],
           "linkType": "HARD",
         }]
@@ -4147,6 +4231,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/brorand-npm-1.1.0-ea86634c4b-3.zip/node_modules/brorand/",
           "packageDependencies": [
             ["brorand", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["browser-lang", [
+        ["npm:0.1.0", {
+          "packageLocation": "./.yarn/cache/browser-lang-npm-0.1.0-2abb9a8c0b-3.zip/node_modules/browser-lang/",
+          "packageDependencies": [
+            ["browser-lang", "npm:0.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -7539,6 +7632,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.10.4"],
             ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],
             ["gatsby-plugin-astroturf", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.2.1"],
+            ["gatsby-plugin-intl", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.3.3"],
             ["gatsby-plugin-offline", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.2.8"],
             ["gatsby-plugin-react-helmet", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:3.3.1"],
             ["gatsby-plugin-sass", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.3.1"],
@@ -8383,6 +8477,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "astroturf",
+            "gatsby"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["gatsby-plugin-intl", [
+        ["virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.3.3", {
+          "packageLocation": "./.yarn/$$virtual/gatsby-plugin-intl-virtual-c646877331/0/cache/gatsby-plugin-intl-npm-0.3.3-abe5cffb01-3.zip/node_modules/gatsby-plugin-intl/",
+          "packageDependencies": [
+            ["gatsby-plugin-intl", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:0.3.3"],
+            ["@babel/runtime", "npm:7.9.6"],
+            ["@formatjs/intl-pluralrules", "npm:1.5.9"],
+            ["@formatjs/intl-relativetimeformat", "npm:4.5.16"],
+            ["browser-lang", "npm:0.1.0"],
+            ["gatsby", "virtual:30bdd7cb7c3c735e05fb52801a298b85abe90e8cf13bb5cf678536147bba3f69655ff569ef3d4bb7adaa4e904e566742d2971d180508f81663b551a1199bc158#npm:2.21.21"],
+            ["intl", "npm:1.2.5"],
+            ["react-intl", "virtual:c646877331afc65e566117c73afb73f0e29454cc03839b557474d75ab53902425eec6182ad0873604d45d10f3f30bcc1eb824ca2ceeadc7851289ea316d4525e#npm:3.12.1"]
+          ],
+          "packagePeers": [
             "gatsby"
           ],
           "linkType": "HARD",
@@ -10206,6 +10319,45 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["es-abstract", "npm:1.17.5"],
             ["has", "npm:1.0.3"],
             ["side-channel", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["intl", [
+        ["npm:1.2.5", {
+          "packageLocation": "./.yarn/cache/intl-npm-1.2.5-6db4a56df9-3.zip/node_modules/intl/",
+          "packageDependencies": [
+            ["intl", "npm:1.2.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["intl-format-cache", [
+        ["npm:4.2.38", {
+          "packageLocation": "./.yarn/cache/intl-format-cache-npm-4.2.38-a2544cbd93-3.zip/node_modules/intl-format-cache/",
+          "packageDependencies": [
+            ["intl-format-cache", "npm:4.2.38"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["intl-messageformat", [
+        ["npm:7.8.4", {
+          "packageLocation": "./.yarn/cache/intl-messageformat-npm-7.8.4-ae73f84d4a-3.zip/node_modules/intl-messageformat/",
+          "packageDependencies": [
+            ["intl-messageformat", "npm:7.8.4"],
+            ["intl-format-cache", "npm:4.2.38"],
+            ["intl-messageformat-parser", "npm:3.6.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["intl-messageformat-parser", [
+        ["npm:3.6.4", {
+          "packageLocation": "./.yarn/cache/intl-messageformat-parser-npm-3.6.4-55d83d351d-3.zip/node_modules/intl-messageformat-parser/",
+          "packageDependencies": [
+            ["intl-messageformat-parser", "npm:3.6.4"],
+            ["@formatjs/intl-unified-numberformat", "npm:3.3.7"]
           ],
           "linkType": "HARD",
         }]
@@ -15144,6 +15296,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["react-intl", [
+        ["virtual:c646877331afc65e566117c73afb73f0e29454cc03839b557474d75ab53902425eec6182ad0873604d45d10f3f30bcc1eb824ca2ceeadc7851289ea316d4525e#npm:3.12.1", {
+          "packageLocation": "./.yarn/$$virtual/react-intl-virtual-9ad178fed4/0/cache/react-intl-npm-3.12.1-65fec75b25-3.zip/node_modules/react-intl/",
+          "packageDependencies": [
+            ["react-intl", "virtual:c646877331afc65e566117c73afb73f0e29454cc03839b557474d75ab53902425eec6182ad0873604d45d10f3f30bcc1eb824ca2ceeadc7851289ea316d4525e#npm:3.12.1"],
+            ["@formatjs/intl-displaynames", "npm:1.2.10"],
+            ["@formatjs/intl-listformat", "npm:1.4.8"],
+            ["@formatjs/intl-relativetimeformat", "npm:4.5.16"],
+            ["@formatjs/intl-unified-numberformat", "npm:3.3.7"],
+            ["@formatjs/intl-utils", "npm:2.3.0"],
+            ["@types/hoist-non-react-statics", "npm:3.3.1"],
+            ["@types/invariant", "npm:2.2.33"],
+            ["hoist-non-react-statics", "npm:3.3.2"],
+            ["intl-format-cache", "npm:4.2.38"],
+            ["intl-messageformat", "npm:7.8.4"],
+            ["intl-messageformat-parser", "npm:3.6.4"],
+            ["react", null],
+            ["shallow-equal", "npm:1.2.1"]
+          ],
+          "packagePeers": [
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["react-is", [
         ["npm:16.13.1", {
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-3.zip/node_modules/react-is/",
@@ -16285,6 +16462,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/shallow-compare-npm-1.2.2-b37b3d06d5-3.zip/node_modules/shallow-compare/",
           "packageDependencies": [
             ["shallow-compare", "npm:1.2.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["shallow-equal", [
+        ["npm:1.2.1", {
+          "packageLocation": "./.yarn/cache/shallow-equal-npm-1.2.1-518a76643b-3.zip/node_modules/shallow-equal/",
+          "packageDependencies": [
+            ["shallow-equal", "npm:1.2.1"]
           ],
           "linkType": "HARD",
         }]

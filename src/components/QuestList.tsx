@@ -1,4 +1,5 @@
 import styled from 'astroturf';
+import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
@@ -30,6 +31,7 @@ const LoadMore = styled('button')`
 `;
 
 export default function QuestList() {
+  const intl = useIntl();
   const [limit, setLimit] = React.useState(5);
   const [multipliers, updateMultiplier] = React.useReducer(
     (multipliers: Multipliers, action: Multipliers) => ({ ...multipliers, ...action }),
@@ -84,13 +86,13 @@ export default function QuestList() {
   );
 
   const multiplierMap: [string, React.ChangeEventHandler<HTMLSelectElement>][] = [
-    ['Normal', handleNormalChange],
-    ['Hard', handleHardChange],
-    ['Very Hard', handleVeryHardChange],
+    [intl.formatMessage({ id: 'difficulty.nm' }), handleNormalChange],
+    [intl.formatMessage({ id: 'difficulty.hd' }), handleHardChange],
+    [intl.formatMessage({ id: 'difficulty.vh' }), handleVeryHardChange],
   ];
   return (
     <section>
-      <Title>Recommended Quests</Title>
+      <Title>{intl.formatMessage({ id: 'recommended-quests.title' })}</Title>
       <div>
         {multiplierMap.map(([label, handler]) => (
           <label key={label}>
@@ -108,7 +110,7 @@ export default function QuestList() {
       </List>
       {quests.length > limit && (
         <LoadMore type="button" onClick={handleLoadMore}>
-          Load more
+          {intl.formatMessage({ id: 'recommended-quests.load-more' })}
         </LoadMore>
       )}
     </section>

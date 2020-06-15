@@ -1,4 +1,5 @@
 import styled from 'astroturf';
+import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
@@ -39,11 +40,17 @@ export default function BaseIngredientList() {
   const baseIngredients = useObserver(
     () => rootState.allBaseIngredientsWithResource(unitData, equipmentData),
   );
+  const intl = useIntl();
+  const title = intl.formatMessage({ id: 'ingredients.title' });
+  const description = intl.formatMessage(
+    { id: 'ingredients.description' },
+    { count: baseIngredients.size },
+  );
   if (baseIngredients.size === 0) {
     return (
       <section>
-        <Title>Ingredients</Title>
-        <div>No items to collect</div>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
       </section>
     );
   }
@@ -86,10 +93,8 @@ export default function BaseIngredientList() {
 
   return (
     <section>
-      <Title>Ingredients</Title>
-      <Description>
-        Click the equipment icon to toggle.
-      </Description>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
       <EquipGrid>
         {icons}
       </EquipGrid>

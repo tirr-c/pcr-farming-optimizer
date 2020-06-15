@@ -1,4 +1,5 @@
 import styled from 'astroturf';
+import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
@@ -43,12 +44,13 @@ const UnitListWrapper = styled('ul')<{ open?: boolean }>`
 
 export default function UnitList() {
   const unitData = useResource('unit').get();
+  const intl = useIntl();
   const [isOpen, setOpen] = React.useState(true);
   const handleTitleClick = React.useCallback(() => setOpen(open => !open), []);
   return (
     <section>
       <TitleAnchor onClick={handleTitleClick}>
-        <Title open={isOpen}>Characters</Title>
+        <Title open={isOpen}>{intl.formatMessage({ id: 'characters.title' })}</Title>
       </TitleAnchor>
       <UnitListWrapper open={isOpen}>
         {[...unitData.values()].map(unit => {

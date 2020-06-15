@@ -1,0 +1,33 @@
+{
+  "title": "PriconneR Farming Optimizer",
+  "fansite-notice": {
+    "base": "This is a fan site of the game {cite}. {link}",
+    "cite": "Princess Connect! Re:Dive",
+    "link": "See the official website (Japanese)."
+  },
+  "loading": {
+    "generic": "Loading...",
+    "equipments": "Loading equipments...",
+    "quest-info": "Loading quest info..."
+  },
+  "characters": {
+    "title": "Characters"
+  },
+  "rank-equipments": {
+    "title": "Rank & Equipments",
+    "description": "{count, select, 0 {No characters selected.} other {Click the equipment icon to toggle.}}"
+  },
+  "ingredients": {
+    "title": "Ingredients",
+    "description": "{count, select, 0 {No items to collect.} other {Click the equipment icon to toggle.}}"
+  },
+  "recommended-quests": {
+    "title": "Recommended Quests",
+    "load-more": "Load more"
+  },
+  "difficulty": {
+    "nm": "Normal",
+    "hd": "Hard",
+    "vh": "Very Hard"
+  }
+}
