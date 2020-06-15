@@ -34,15 +34,15 @@ const Ui = styled('main')`
     grid-area: t;
   }
 
-  > :nth-child(2) {
+  > section:nth-of-type(1) {
     grid-area: a;
   }
 
-  > :nth-child(3) {
+  > section:nth-of-type(2) {
     grid-area: b;
   }
 
-  > :nth-child(4) {
+  > section:nth-of-type(3) {
     grid-area: c;
   }
 
@@ -89,7 +89,7 @@ export default function Layout(props: Props) {
         <title>{title}</title>
       </Helmet>
       <Title>{defaultTitle}</Title>
-      <React.Suspense fallback={<div>{intl.formatMessage({ id: 'loading.generic' })}</div>}>
+      <React.Suspense fallback={<section>{intl.formatMessage({ id: 'loading.generic' })}</section>}>
         {props.children}
       </React.Suspense>
       <Footer>

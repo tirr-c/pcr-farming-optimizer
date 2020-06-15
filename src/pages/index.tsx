@@ -18,14 +18,14 @@ export default function Index() {
     <Wrapper region={region}>
       <Layout>
         <UnitList />
-        <React.Suspense fallback={<div>{intl.formatMessage({ id: 'loading.equipments' })}</div>}>
+        <React.Suspense fallback={<section>{intl.formatMessage({ id: 'loading.equipments' })}</section>}>
           <UnitEquipList />
-          <div>
+          <section>
             <BaseIngredientList />
-            <React.Suspense fallback={<div>{intl.formatMessage({ id: 'loading.quest-info' })}</div>}>
+            <React.Suspense fallback={<section>{intl.formatMessage({ id: 'loading.quest-info' })}</section>}>
               <QuestList />
             </React.Suspense>
-          </div>
+          </section>
         </React.Suspense>
       </Layout>
     </Wrapper>
