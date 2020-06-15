@@ -1,5 +1,6 @@
 {
   "title": "PriconneR Farming Optimizer",
+  "region-template": "{lang} ({region} server)",
   "fansite-notice": {
     "base": "This is a fan site of the game {cite}. {link}",
     "cite": "Princess Connect! Re:Dive",

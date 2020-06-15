@@ -1,4 +1,5 @@
 import styled from 'astroturf';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { useIntl } from 'gatsby-plugin-intl';
 import React from 'react';
 import { Helmet } from 'react-helmet';
@@ -8,6 +9,7 @@ const Ui = styled('main')`
   max-width: 1200px;
   margin: 0 auto;
   grid-template:
+    's s'
     't t'
     'a c'
     'b c' 1fr
@@ -18,6 +20,7 @@ const Ui = styled('main')`
 
   @media (max-width: 1200px + 16px * 2) {
     grid-template:
+      's s'
       't t'
       'a c'
       'b c' 1fr
@@ -26,8 +29,12 @@ const Ui = styled('main')`
   }
 
   @media (max-width: 1000px) {
-    grid-template: 't' 'a' 'b' 'c' 'f' / 100%;
+    grid-template: 's' 't' 'a' 'b' 'c' 'f' / 100%;
     grid-auto-rows: auto;
+  }
+
+  > nav {
+    grid-area: s;
   }
 
   > h1 {
@@ -51,6 +58,10 @@ const Ui = styled('main')`
   }
 `;
 
+const Servers = styled('nav')`
+  justify-content: end;
+`;
+
 const Title = styled('h1')`
   font-size: 28px;
   font-weight: bold;
@@ -67,6 +78,20 @@ interface Props {
 }
 
 export default function Layout(props: Props) {
+  const queryResult = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          availableRegions {
+            region
+            locale
+          }
+        }
+      }
+    }
+  `);
+  const { availableRegions } = queryResult.site.siteMetadata;
+
   const intl = useIntl();
   const defaultTitle: string = intl.formatMessage({ id: 'title' });
   const title = props.title ? `${props.title} - ${defaultTitle}` : defaultTitle;
@@ -83,11 +108,31 @@ export default function Layout(props: Props) {
       ),
     },
   );
+  const regions: { locale: string; display: string }[] = availableRegions.map(({ region, locale }: any) => {
+    const regionText = intl.formatDisplayName(region.toUpperCase(), { type: 'region', style: 'short' });
+    const languageText = intl.formatDisplayName(locale, { type: 'language', style: 'short' });
+    const display = intl.formatMessage(
+      { id: 'region-template' },
+      { lang: languageText, region: regionText },
+    );
+    return {
+      locale,
+      display,
+    };
+  });
   return (
     <Ui>
       <Helmet>
         <title>{title}</title>
       </Helmet>
+      <Servers>
+        {regions.map(({ locale, display }, idx) => (
+          <React.Fragment key={locale}>
+            {idx > 0 && ' | '}
+            <Link to={`/${locale}/`}>{display}</Link>
+          </React.Fragment>
+        ))}
+      </Servers>
       <Title>{defaultTitle}</Title>
       <React.Suspense fallback={<section>{intl.formatMessage({ id: 'loading.generic' })}</section>}>
         {props.children}

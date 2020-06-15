@@ -46,9 +46,12 @@ export default function Wrapper(props: Props) {
         const savedSnapshot = JSON.parse(savedSnapshotRaw);
         applySnapshot(rootState, savedSnapshot);
         window.localStorage.setItem(storageKey, savedSnapshotRaw);
+      } else {
+        rootState.clear();
       }
     } catch (e) {
       // drop
+      rootState.clear();
     }
 
     const dispose = onSnapshot(rootState, snapshot => {

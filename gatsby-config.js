@@ -4,6 +4,10 @@ module.exports = {
   pathPrefix: '/farming-optimizer',
   siteMetadata: {
     title: 'PriconneR Farming Optimizer',
+    availableRegions: [
+      { region: 'jp', locale: 'en' },
+      { region: 'kr', locale: 'ko' },
+    ],
   },
   plugins: [
     'gatsby-plugin-sass',

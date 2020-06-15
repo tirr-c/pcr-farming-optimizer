@@ -30,6 +30,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],
     "fallbackPool": [
       [
+        "@formatjs/intl-displaynames",
+        "npm:2.2.6"
+      ],
+      [
         "@types/react",
         "npm:16.9.34"
       ],
@@ -121,6 +125,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@formatjs/intl-displaynames", "npm:2.2.6"],
             ["@types/react", "npm:16.9.34"],
             ["@types/react-dom", "npm:16.9.7"],
             ["@types/react-helmet", "npm:6.0.0"],
@@ -1709,6 +1714,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@formatjs/intl-utils", "npm:2.3.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:2.2.6", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-displaynames-npm-2.2.6-9a01240332-3.zip/node_modules/@formatjs/intl-displaynames/",
+          "packageDependencies": [
+            ["@formatjs/intl-displaynames", "npm:2.2.6"],
+            ["@formatjs/intl-utils", "npm:3.3.1"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["@formatjs/intl-listformat", [
@@ -1756,6 +1769,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@formatjs-intl-utils-npm-2.3.0-10207395d1-3.zip/node_modules/@formatjs/intl-utils/",
           "packageDependencies": [
             ["@formatjs/intl-utils", "npm:2.3.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:3.3.1", {
+          "packageLocation": "./.yarn/cache/@formatjs-intl-utils-npm-3.3.1-08510c16ad-3.zip/node_modules/@formatjs/intl-utils/",
+          "packageDependencies": [
+            ["@formatjs/intl-utils", "npm:3.3.1"],
+            ["emojis-list", "npm:3.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -7625,6 +7646,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["farming-optimizer", "workspace:."],
+            ["@formatjs/intl-displaynames", "npm:2.2.6"],
             ["@types/react", "npm:16.9.34"],
             ["@types/react-dom", "npm:16.9.7"],
             ["@types/react-helmet", "npm:6.0.0"],

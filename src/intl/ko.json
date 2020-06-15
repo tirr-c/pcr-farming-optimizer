@@ -1,5 +1,6 @@
 {
   "title": "프리코네R 퀘스트 추천기",
+  "region-template": "{lang} ({region} 서버)",
   "fansite-notice": {
     "base": "이곳은 게임 {cite}의 팬 사이트입니다. {link}",
     "cite": "프린세스 커넥트! Re:Dive",

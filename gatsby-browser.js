@@ -6,6 +6,12 @@ import 'mobx-react-lite/batchingForReactDom';
 import './src/reset.css';
 import { StateProvider, Root } from './src/state';
 
+if (!Intl.DisplayNames) {
+  require('@formatjs/intl-displaynames/polyfill');
+  require('@formatjs/intl-displaynames/dist/locale-data/en');
+  require('@formatjs/intl-displaynames/dist/locale-data/ko');
+}
+
 const rootState = Root.create({});
 
 export function replaceHydrateFunction() {

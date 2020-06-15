@@ -135,6 +135,10 @@ export const Root = types
     includeEquip(id: string) {
       self.excludedEquips.delete(id);
     },
+    clear() {
+      self.units.clear();
+      self.excludedEquips.clear();
+    },
   }));
 
 export type RootType = Instance<typeof Root>;
