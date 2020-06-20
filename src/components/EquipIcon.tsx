@@ -4,7 +4,7 @@ import React from 'react';
 import Icon from './Icon';
 
 interface WrapperProps {
-  size: 'xsmall' | 'small' | 'medium' | 'large';
+  size: 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large';
   dimInactive?: boolean;
 }
 
@@ -33,7 +33,7 @@ const Wrapper = styled('label')<WrapperProps>`
   }
 
   $base-radius: 8px;
-  $sizes: ('xsmall': 0.375, 'small': 0.5, 'medium': 0.75, 'large': 1);
+  $sizes: ('xxsmall': 0.3125, 'xsmall': 0.375, 'small': 0.5, 'medium': 0.75, 'large': 1);
 
   @each $name, $scale in $sizes {
     &.size-#{$name} > input {
@@ -50,7 +50,7 @@ const Addon = styled('div')<Pick<WrapperProps, 'size'>>`
   max-height: 100%;
 
   $base-padding: 8px;
-  $sizes: ('xsmall': 0.375, 'small': 0.5, 'medium': 0.75, 'large': 1);
+  $sizes: ('xxsmall': 0.3125, 'xsmall': 0.375, 'small': 0.5, 'medium': 0.75, 'large': 1);
 
   @each $name, $scale in $sizes {
     &.size-#{$name} {
@@ -71,7 +71,7 @@ const styles = css`
 interface Props {
   id: string;
   name: string;
-  size: 'xsmall' | 'small' | 'medium' | 'large';
+  size: 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large';
   active?: boolean;
   dimInactive?: boolean;
   onChange?(active: boolean): void;

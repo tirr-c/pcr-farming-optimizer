@@ -2,7 +2,7 @@ import styled from 'astroturf';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
-import { calculateDrops } from '../resources/quests';
+import { calculateDrops, Quest as QuestData } from '../resources/quests';
 import { useStateContext } from '../state';
 
 import EquipIcon from './EquipIcon';
@@ -50,6 +50,54 @@ interface Props {
 
 const difficulties = [, 'N', 'H', 'VH'];
 
+interface MakeDropGroupsResult {
+  memoryPieces: string[];
+  groups: [number, string[]][][];
+}
+
+function makeDropGroups(quest: QuestData): MakeDropGroupsResult {
+  function append(m: Map<number, string[]>, k: number, v: string) {
+    const group = m.get(k) ?? [];
+    group.push(v);
+    m.set(k, group);
+  }
+
+  const questDrops = calculateDrops(quest);
+  const memoryPieces = questDrops.flat()
+    .map(drop => drop.reward.type === 'item' && drop.reward.id[0] === '3' ? drop.reward.id : null)
+    .filter(drop => drop != null) as string[];
+  const mainDropGroups = new Map<number, string[]>();
+  const subDropGroups = new Map<number, string[]>();
+  for (const drops of questDrops) {
+    const equipments = drops
+      .map(drop => drop.reward.type === 'equipment' ? [drop.odds, drop.reward.id] : null)
+      .filter(drop => drop != null) as [number, string][];
+    if (equipments.length === 0) {
+      continue;
+    }
+    const targetMap = equipments.length > 1 ? subDropGroups : mainDropGroups;
+    for (const [odds, id] of equipments) {
+      append(targetMap, odds, id);
+    }
+  }
+  const groupMaps = [];
+  if (mainDropGroups.size > 0) {
+    groupMaps.push(mainDropGroups);
+  }
+  if (subDropGroups.size > 0) {
+    groupMaps.push(subDropGroups);
+  }
+  const groups = groupMaps.map(group => {
+    const sorted = [...group.entries()];
+    sorted.sort(([a], [b]) => b - a);
+    return sorted;
+  });
+  return {
+    memoryPieces,
+    groups,
+  };
+}
+
 export default function Quest(props: Props) {
   const { id } = props;
   const unitData = useResource('unit').get();
@@ -62,28 +110,13 @@ export default function Quest(props: Props) {
   const difficultyId = difficulties[Number(id[1])];
   const areaId = parseInt(id.substring(2, 5), 10);
   const stageId = parseInt(id.substring(6, 9), 10);
-
-  const drops = calculateDrops(quest).flat();
-  const memoryPieces = [];
-  const dropGroups = new Map<number, string[]>();
-  for (const drop of drops) {
-    if (drop.reward.type === 'item' && drop.reward.id[0] === '3') {
-      memoryPieces.push(drop.reward.id);
-    }
-    if (drop.reward.type === 'equipment') {
-      const group = dropGroups.get(drop.odds) ?? [];
-      group.push(drop.reward.id);
-      dropGroups.set(drop.odds, group);
-    }
-  }
+  const { memoryPieces, groups } = makeDropGroups(quest);
 
   const rootState = useStateContext();
   const equipmentIdMap = useObserver(
     () => rootState.allBaseIngredientsExcludedWithResource(unitData, equipmentData)
   );
 
-  const sortedGroups = [...dropGroups.entries()];
-  sortedGroups.sort(([a], [b]) => b - a);
   return (
     <li>
       <AreaId>
@@ -99,22 +132,26 @@ export default function Quest(props: Props) {
         {props.score != null && ` (scored ${props.score})`}
       </AreaId>
       <Drops>
-        {sortedGroups.map(([odds, ids]) => (
-          <DropGroup key={odds}>
-            <dt>{odds}%</dt>
-            <dd>
-              {ids.map(id => (
-                <EquipIcon
-                  key={id}
-                  size="xsmall"
-                  id={id}
-                  name=""
-                  dimInactive
-                  active={equipmentIdMap.has(id)}
-                />
-              ))}
-            </dd>
-          </DropGroup>
+        {groups.map((group, idx) => (
+          <React.Fragment key={idx}>
+            {group.map(([odds, ids]) => (
+              <DropGroup key={odds}>
+                <dt>{odds}%</dt>
+                <dd>
+                  {ids.map(id => (
+                    <EquipIcon
+                      key={id}
+                      size={idx > 0 ? 'xxsmall' : 'xsmall'}
+                      id={id}
+                      name=""
+                      dimInactive
+                      active={equipmentIdMap.has(id)}
+                    />
+                  ))}
+                </dd>
+              </DropGroup>
+            ))}
+          </React.Fragment>
         ))}
       </Drops>
     </li>
