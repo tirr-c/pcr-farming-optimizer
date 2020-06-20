@@ -141,7 +141,7 @@ export default function Quest(props: Props) {
                   {ids.map(id => (
                     <EquipIcon
                       key={id}
-                      size={idx > 0 ? 'xxsmall' : 'xsmall'}
+                      size={idx > 0 ? 'xsmall' : 'small'}
                       id={id}
                       name=""
                       dimInactive

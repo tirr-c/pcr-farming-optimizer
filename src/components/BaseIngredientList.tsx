@@ -124,7 +124,7 @@ function InteractiveEquipIcon(props: { id: string; count: number }) {
     <EquipIcon
       id={id}
       name={equipmentData.get(id)?.name || ''}
-      size="xsmall"
+      size="small"
       active={active}
       dimInactive
       onChange={handleChange}

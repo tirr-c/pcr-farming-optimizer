@@ -3,7 +3,7 @@ import React from 'react';
 
 import Icon from './Icon';
 
-const Wrapper = styled('label')<{ size: 'small' | 'medium' | 'large' }>`
+const Wrapper = styled('label')<{ size: 'medium' | 'large' | 'xlarge' }>`
   width: 100%;
   height: 100%;
   position: relative;
@@ -24,7 +24,7 @@ const Wrapper = styled('label')<{ size: 'small' | 'medium' | 'large' }>`
   }
 
   $base-radius: 8px;
-  $sizes: ('small': 0.5, 'medium': 0.75, 'large': 1);
+  $sizes: ('medium': 0.5, 'large': 0.75, 'xlarge': 1);
 
   @each $name, $scale in $sizes {
     &.size-#{$name} {
@@ -39,7 +39,7 @@ interface Props {
   unitId: string;
   name: string;
   rarity: number;
-  size: 'small' | 'medium' | 'large';
+  size: 'medium' | 'large' | 'xlarge';
   active?: boolean;
   onChange?(active: boolean): void;
 }

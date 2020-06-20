@@ -83,7 +83,7 @@ export default function UnitEquips(props: Props) {
 
   return (
     <Wrapper>
-      <UnitIcon unitId={id} name={name} rarity={1} active size="medium" />
+      <UnitIcon unitId={id} name={name} rarity={1} active size="large" />
       <UnitName>{name}</UnitName>
       <EquipGrid>
         <EquipGridLabel>From:</EquipGridLabel>
@@ -96,7 +96,7 @@ export default function UnitEquips(props: Props) {
             id={id}
             name=""
             active={active}
-            size="xsmall"
+            size="small"
             onChange={value => unit.changeEquipFrom(idx, value)}
           />
         ))}
@@ -112,7 +112,7 @@ export default function UnitEquips(props: Props) {
             id={id}
             name=""
             active={active}
-            size="xsmall"
+            size="small"
             onChange={value => unit.changeEquipTo(idx, value)}
           />
         ))}
