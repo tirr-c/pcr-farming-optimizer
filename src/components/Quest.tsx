@@ -21,10 +21,14 @@ const AreaId = styled('div')`
 
 const Drops = styled('dl')`
   display: flex;
+  flex-wrap: wrap;
   font-size: 12px;
 
-  > * + * {
-    margin-left: 4px;
+  > * {
+    margin-right: 4px;
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 `;
 
@@ -78,6 +82,8 @@ export default function Quest(props: Props) {
     () => rootState.allBaseIngredientsExcludedWithResource(unitData, equipmentData)
   );
 
+  const sortedGroups = [...dropGroups.entries()];
+  sortedGroups.sort(([a], [b]) => b - a);
   return (
     <li>
       <AreaId>
@@ -93,7 +99,7 @@ export default function Quest(props: Props) {
         {props.score != null && ` (scored ${props.score})`}
       </AreaId>
       <Drops>
-        {[...dropGroups.entries()].map(([odds, ids]) => (
+        {sortedGroups.map(([odds, ids]) => (
           <DropGroup key={odds}>
             <dt>{odds}%</dt>
             <dd>
