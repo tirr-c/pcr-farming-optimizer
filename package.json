@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@formatjs/intl-displaynames": "^2.2.6",
-    "@yarnpkg/pnpify": "^2.0.0-rc.22",
+    "@yarnpkg/pnpify": "2.0.0-rc.25",
     "astroturf": "^0.10.4",
     "gatsby": "^2.21.21",
     "gatsby-plugin-astroturf": "^0.2.1",
