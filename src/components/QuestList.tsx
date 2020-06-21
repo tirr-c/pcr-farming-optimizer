@@ -6,6 +6,7 @@ import React from 'react';
 import { Multipliers, rankQuests } from '../resources/quests';
 import { useStateContext } from '../state';
 
+import MultiplierOptions from './MultiplierOptions';
 import Quest from './Quest';
 import { useResource } from './Wrapper';
 
@@ -14,6 +15,20 @@ const Title = styled('h2')`
   margin-bottom: 12px;
   font-size: 24px;
   font-weight: bold;
+`;
+
+const OptionsList = styled('div')`
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 1;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 `;
 
 const List = styled('ul')<{ pending?: boolean }>`
@@ -62,53 +77,36 @@ export default function QuestList() {
   }, []);
 
   const handleNormalChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const value = Number(e.target.value);
-      updateMultiplier({ normal: value });
-    },
+    (multiplier: number) => updateMultiplier({ normal: multiplier }),
     [],
   );
   const handleHardChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const value = Number(e.target.value);
-      updateMultiplier({ hard: value });
-    },
+    (multiplier: number) => updateMultiplier({ hard: multiplier }),
     [],
   );
   const handleVeryHardChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const value = Number(e.target.value);
-      updateMultiplier({ veryHard: value });
-    },
+    (multiplier: number) => updateMultiplier({ veryHard: multiplier }),
     [],
   );
 
-  const multiplierOptions = (
-    <>
-      <option value="1">x1</option>
-      <option value="2">x2</option>
-      <option value="3">x3</option>
-    </>
-  );
-
-  const multiplierMap: [string, React.ChangeEventHandler<HTMLSelectElement>][] = [
-    [intl.formatMessage({ id: 'difficulty.nm' }), handleNormalChange],
-    [intl.formatMessage({ id: 'difficulty.hd' }), handleHardChange],
-    [intl.formatMessage({ id: 'difficulty.vh' }), handleVeryHardChange],
+  const multiplierMap: [string, number, (multiplier: number) => void][] = [
+    ['difficulty.nm', multipliers.normal || 1, handleNormalChange],
+    ['difficulty.hd', multipliers.hard || 1, handleHardChange],
+    ['difficulty.vh', multipliers.veryHard || 1, handleVeryHardChange],
   ];
   return (
     <section>
       <Title>{intl.formatMessage({ id: 'recommended-quests.title' })}</Title>
-      <div>
-        {multiplierMap.map(([label, handler]) => (
-          <label key={label}>
-            {`${label} `}
-            <select onChange={handler}>
-              {multiplierOptions}
-            </select>
-          </label>
+      <OptionsList>
+        {multiplierMap.map(([labelId, value, handler], idx) => (
+          <MultiplierOptions
+            key={idx}
+            label={intl.formatMessage({ id: labelId })}
+            multiplier={value}
+            onChange={handler}
+          />
         ))}
-      </div>
+      </OptionsList>
       <List pending={pending}>
         {quests.slice(0, limit).map(({ id, score }) => (
           <Quest key={id} id={id} score={score} />
@@ -122,3 +120,4 @@ export default function QuestList() {
     </section>
   );
 }
+
