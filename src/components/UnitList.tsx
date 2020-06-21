@@ -3,6 +3,7 @@ import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
+import { orderUnits } from '../resources/units';
 import { useStateContext } from '../state';
 
 import UnitIcon from './UnitIcon';
@@ -54,13 +55,14 @@ export default function UnitList() {
   const rootState = useStateContext();
   const isOpen = useObserver(() => rootState.unitListOpen);
   const handleTitleClick = React.useCallback(() => rootState.toggleUnitListOpen(), []);
+  const unitList = orderUnits(unitData, { orderBy: 'name' });
   return (
     <section>
       <TitleAnchor onClick={handleTitleClick}>
         <Title open={isOpen}>{intl.formatMessage({ id: 'characters.title' })}</Title>
       </TitleAnchor>
       <UnitListWrapper open={isOpen} pending={pending}>
-        {[...unitData.values()].map(unit => {
+        {unitList.map(unit => {
           return (
             <UnitItem
               key={unit.id}
