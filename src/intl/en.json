@@ -16,7 +16,9 @@
   },
   "rank-equipments": {
     "title": "Rank & Equipments",
-    "description": "{count, select, 0 {No characters selected.} other {Click the equipment icon to toggle.}}"
+    "description": "{count, select, 0 {No characters selected.} other {Click the equipment icon to toggle.}}",
+    "from": "From:",
+    "to": "To:"
   },
   "ingredients": {
     "title": "Ingredients",

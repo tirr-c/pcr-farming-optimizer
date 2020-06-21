@@ -1,4 +1,5 @@
 import styled from 'astroturf';
+import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
 import { Instance } from 'mobx-state-tree';
 import React from 'react';
@@ -34,6 +35,7 @@ const EquipGrid = styled('ul')`
 `;
 
 const EquipGridLabel = styled('div')`
+  grid-area: auto / span 2;
   font-size: 14px;
 `;
 
@@ -87,6 +89,7 @@ export default function UnitEquips(props: Props) {
   const id = useObserver(() => unit.id);
   const unitData = useResource('unit').get();
   const unitDetail = unitData.get(id);
+  const intl = useIntl();
   const name = unitDetail?.name ?? '';
   const availableRanks = unitDetail?.equips.length ?? 1;
   const [rankFrom, equipDataFrom] = useObserver(() => {
@@ -122,7 +125,9 @@ export default function UnitEquips(props: Props) {
       <UnitIcon unitId={id} name={name} rarity={1} active size="large" />
       <UnitName>{name}</UnitName>
       <EquipGrid>
-        <EquipGridLabel>From:</EquipGridLabel>
+        <EquipGridLabel>
+          {intl.formatMessage({ id: 'rank-equipments.from' })}
+        </EquipGridLabel>
         <RankSelectorWrapper>
           <RankSelector value={String(rankFrom)} onChange={handleRankFromChange}>
             {rankOptions}
@@ -140,7 +145,9 @@ export default function UnitEquips(props: Props) {
         ))}
       </EquipGrid>
       <EquipGrid>
-        <EquipGridLabel>To:</EquipGridLabel>
+        <EquipGridLabel>
+          {intl.formatMessage({ id: 'rank-equipments.to' })}
+        </EquipGridLabel>
         <RankSelectorWrapper>
           <RankSelector value={String(rankTo)} onChange={handleRankToChange}>
             {rankOptions}
