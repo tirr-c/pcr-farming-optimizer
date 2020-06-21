@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail; IFS=$'\n\t'
 
-yarn build --prefix-paths
+GATSBY_TELEMETRY_DISABLED=1 yarn build --prefix-paths
 aws s3 --region "$REGION" sync \
   --acl public-read \
   --delete --exclude 'static/*' --exclude 'data/*' --exclude 'sw.js' \
