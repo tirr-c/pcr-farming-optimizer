@@ -15,17 +15,29 @@ const TitleAnchor = styled('a')`
 `;
 
 const Title = styled('h2')<{ open?: boolean }>`
+  display: flex;
+  align-items: center;
+
   margin-bottom: 12px;
   font-size: 24px;
   font-weight: bold;
 
   &::before {
-    content: '>';
-    margin-right: 4px;
+    display: block;
+    box-sizing: border-box;
+    content: '';
+    width: 12px;
+    height: 12px;
+    margin: 0 10px 6px 4px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+
+    transform: rotate(-45deg);
+    transform-origin: 75% 75%;
   }
 
   &.open::before {
-    content: 'v';
+    transform: rotate(45deg);
   }
 `;
 

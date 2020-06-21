@@ -56,11 +56,16 @@ const RankSelectorWrapper = styled('label')`
   &::after {
     flex: none;
     display: block;
-    content: '▼';
-    position: relative;
-    top: 1px;
-    margin-left: 4px;
-    font-size: 0.9em;
+    box-sizing: border-box;
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin: 0 4px 2px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+
+    transform: rotate(45deg);
+    transform-origin: 75% 75%;
   }
 `;
 
