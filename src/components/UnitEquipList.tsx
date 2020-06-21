@@ -1,9 +1,12 @@
 import styled from 'astroturf';
 import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
+import { Instance } from 'mobx-state-tree';
 import React from 'react';
 
+import { Unit as UnitData, orderUnits } from '../resources/units';
 import { useStateContext } from '../state';
+import UnitState from '../state/unit';
 
 import UnitEquips from './UnitEquips';
 import { useResource } from './Wrapper';
@@ -32,16 +35,31 @@ const Wrapper = styled('ul')<{ pending?: boolean }>`
 `;
 
 export default function UnitEquipList() {
+  const unitData = useResource('unit').get();
   const intl = useIntl();
   const rootState = useStateContext();
   const pending = useResource('pending');
-  const units = useObserver(() => (
-    [...rootState.units.values()]
-      .map(unit => ({
-        id: unit.id,
-        unit,
+  const units = useObserver(() => {
+    const unitDataAndState = [...rootState.units.values()]
+      .map(state => {
+        const data = unitData.get(state.id);
+        if (data == null) {
+          return null;
+        }
+        return {
+          ...data,
+          unitState: state,
+        };
+      })
+      .filter(data => data != null) as
+        (UnitData & { unitState: Instance<typeof UnitState> })[];
+    const sortedUnitData = orderUnits(unitDataAndState, { orderBy: 'name' });
+    return sortedUnitData
+      .map(({ id, unitState }) => ({
+        id,
+        unit: unitState,
       }))
-  ));
+  });
   return (
     <section>
       <Title>{intl.formatMessage({ id: 'rank-equipments.title' })}</Title>

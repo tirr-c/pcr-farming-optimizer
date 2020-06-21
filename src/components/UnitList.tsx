@@ -55,7 +55,7 @@ export default function UnitList() {
   const rootState = useStateContext();
   const isOpen = useObserver(() => rootState.unitListOpen);
   const handleTitleClick = React.useCallback(() => rootState.toggleUnitListOpen(), []);
-  const unitList = orderUnits(unitData, { orderBy: 'name' });
+  const unitList = orderUnits(unitData.values(), { orderBy: 'name' });
   return (
     <section>
       <TitleAnchor onClick={handleTitleClick}>

@@ -34,12 +34,12 @@ interface OrderUnitsOptions {
   orderDirection?: OrderUnitsDirection;
 }
 
-export function orderUnits(
-  units: Map<string, Unit>,
+export function orderUnits<UnitType extends Unit>(
+  units: Iterable<UnitType>,
   options: OrderUnitsOptions,
-): Unit[] {
+): UnitType[] {
   const { orderBy = 'id', orderDirection = 'asc' } = options;
-  const unitList = [...units.values()];
+  const unitList = [...units];
   unitList.sort((a, b) => {
     let valueA: any;
     let valueB: any;
