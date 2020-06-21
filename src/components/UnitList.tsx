@@ -51,8 +51,9 @@ export default function UnitList() {
   const unitData = useResource('unit').get();
   const pending = useResource('pending');
   const intl = useIntl();
-  const [isOpen, setOpen] = React.useState(true);
-  const handleTitleClick = React.useCallback(() => setOpen(open => !open), []);
+  const rootState = useStateContext();
+  const isOpen = useObserver(() => rootState.unitListOpen);
+  const handleTitleClick = React.useCallback(() => rootState.toggleUnitListOpen(), []);
   return (
     <section>
       <TitleAnchor onClick={handleTitleClick}>

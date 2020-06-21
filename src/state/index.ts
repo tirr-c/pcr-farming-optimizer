@@ -91,6 +91,7 @@ export const Root = types
   .model('Root', {
     units: types.map(Unit),
     excludedEquips: types.map(Equipment),
+    unitListOpen: true,
   })
   .views(self => ({
     allRequiredEquipsWithResource(units: Map<string, UnitResource>) {
@@ -134,6 +135,12 @@ export const Root = types
     },
     includeEquip(id: string) {
       self.excludedEquips.delete(id);
+    },
+    setUnitListOpen(state: boolean) {
+      self.unitListOpen = state;
+    },
+    toggleUnitListOpen() {
+      self.unitListOpen = !self.unitListOpen;
     },
     clear() {
       self.units.clear();
