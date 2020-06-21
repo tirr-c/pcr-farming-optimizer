@@ -4,7 +4,7 @@ import { Instance } from 'mobx-state-tree';
 import React from 'react';
 
 import { getEquipsForRank } from '../resources/units';
-import { Unit } from '../state';
+import Unit from '../state/unit';
 
 import EquipIcon from './EquipIcon';
 import UnitIcon from './UnitIcon';
