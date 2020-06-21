@@ -4,7 +4,6 @@ import React from 'react';
 const MultiplierLabel = styled('label')`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   min-width: 120px;
   max-width: 150px;
   padding: 4px;

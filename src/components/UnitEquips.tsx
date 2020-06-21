@@ -37,9 +37,45 @@ const EquipGridLabel = styled('div')`
   font-size: 14px;
 `;
 
-const RankSelector = styled('select')`
+const RankSelectorWrapper = styled('label')`
   grid-area: auto / span 2;
-  height: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+
+  &:focus-within {
+    outline: 1px dotted #212121;
+    outline: auto -webkit-focus-ring-color;
+  }
+
+  &::after {
+    flex: none;
+    display: block;
+    content: '▼';
+    position: relative;
+    top: 1px;
+    margin-left: 4px;
+    font-size: 0.9em;
+  }
+`;
+
+const RankSelector = styled('select')`
+  flex: 1;
+  display: block;
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.9em;
+  -webkit-tap-highlight-color: rgba(black, 0);
+
+  &:focus, &:active {
+    outline: none;
+  }
 `;
 
 interface Props {
@@ -87,9 +123,11 @@ export default function UnitEquips(props: Props) {
       <UnitName>{name}</UnitName>
       <EquipGrid>
         <EquipGridLabel>From:</EquipGridLabel>
-        <RankSelector value={String(rankFrom)} onChange={handleRankFromChange}>
-          {rankOptions}
-        </RankSelector>
+        <RankSelectorWrapper>
+          <RankSelector value={String(rankFrom)} onChange={handleRankFromChange}>
+            {rankOptions}
+          </RankSelector>
+        </RankSelectorWrapper>
         {equipDataFrom.map(({id, active}, idx) => (
           <EquipIcon
             key={idx}
@@ -103,9 +141,11 @@ export default function UnitEquips(props: Props) {
       </EquipGrid>
       <EquipGrid>
         <EquipGridLabel>To:</EquipGridLabel>
-        <RankSelector value={String(rankTo)} onChange={handleRankToChange}>
-          {rankOptions}
-        </RankSelector>
+        <RankSelectorWrapper>
+          <RankSelector value={String(rankTo)} onChange={handleRankToChange}>
+            {rankOptions}
+          </RankSelector>
+        </RankSelectorWrapper>
         {equipDataTo.map(({id, active}, idx) => (
           <EquipIcon
             key={idx}
