@@ -61,35 +61,21 @@ export default function BaseIngredientList() {
     );
   }
   const icons = [...baseIngredients.entries()]
-    .sort(([idA, countA], [idB, countB]) => {
-      if (countA !== countB) {
-        return countA - countB;
-      }
-      const eqA = equipmentData.get(idA);
-      const eqB = equipmentData.get(idB);
-      if (eqA === eqB) {
+    .sort(([idA], [idB]) => {
+      if (idA === idB) {
         return 0;
       }
-      if (eqA == null) {
-        return 1;
+      const rarityA = Number(idA[2]);
+      const rarityB = Number(idB[2]);
+      if (rarityA !== rarityB) {
+        return rarityA - rarityB;
       }
-      if (eqB == null) {
-        return -1;
+      const orderA = Number(idA.substring(3));
+      const orderB = Number(idB.substring(3));
+      if (orderA !== orderB) {
+        return orderA - orderB;
       }
-      if (eqA.promotion_level === eqB.promotion_level) {
-        return idA < idB ? -1 : idA === idB ? 0 : 1;
-      }
-      const promoMap = {
-        blue: 1,
-        bronze: 2,
-        silver: 3,
-        gold: 4,
-        purple: 5,
-        special: 99,
-      };
-      const promoIdxA = promoMap[eqA.promotion_level];
-      const promoIdxB = promoMap[eqB.promotion_level];
-      return promoIdxA - promoIdxB;
+      return Number(idA[1]) - Number(idB[1]);
     })
     .map(([id, count]) => (
       <li key={id}>
