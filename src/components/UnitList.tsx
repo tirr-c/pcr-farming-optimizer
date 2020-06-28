@@ -3,7 +3,7 @@ import { useIntl } from 'gatsby-plugin-intl';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 
-import { orderUnits } from '../resources/units';
+import { matchQuery, orderUnits } from '../resources/units';
 import { useStateContext } from '../state';
 
 import UnitIcon from './UnitIcon';
@@ -41,6 +41,38 @@ const Title = styled('h2')<{ open?: boolean }>`
   }
 `;
 
+const SearchWrapper = styled('label')`
+  width: 100%;
+  height: 32px;
+  margin: 0 0 12px;
+  padding: 3px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid black;
+  border-radius: 3px;
+
+  &:focus-within {
+    outline: auto -webkit-focus-ring-color;
+  }
+`;
+
+const Search = styled('input')`
+  flex: 1;
+  appearance: none;
+  border: 0;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+Search.defaultProps = {
+  type: 'search',
+};
+
 const UnitListWrapper = styled('ul')<{ open?: boolean, pending?: boolean }>`
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 64px);
@@ -61,28 +93,50 @@ const UnitListWrapper = styled('ul')<{ open?: boolean, pending?: boolean }>`
 `;
 
 export default function UnitList() {
+  const [searchText, setSearchText] = React.useState('');
+  const deferredSearchText = (React as any).unstable_useDeferredValue(
+    searchText,
+    { timeoutMs: 1000 },
+  );
+  const handleSearchChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  }, []);
+
   const unitData = useResource('unit').get();
   const pending = useResource('pending');
   const intl = useIntl();
   const rootState = useStateContext();
   const isOpen = useObserver(() => rootState.unitListOpen);
   const handleTitleClick = React.useCallback(() => rootState.toggleUnitListOpen(), []);
-  const unitList = orderUnits(unitData.values(), { orderBy: 'name' });
+  const unitList = orderUnits(unitData.values(), { orderBy: 'search' });
   return (
     <section>
       <TitleAnchor onClick={handleTitleClick}>
         <Title open={isOpen}>{intl.formatMessage({ id: 'characters.title' })}</Title>
       </TitleAnchor>
+      {isOpen && (
+        <SearchWrapper>
+          <Search
+            value={searchText}
+            placeholder={intl.formatMessage({ id: 'characters.search' })}
+            onChange={handleSearchChange}
+          />
+        </SearchWrapper>
+      )}
       <UnitListWrapper open={isOpen} pending={pending}>
-        {unitList.map(unit => {
-          return (
-            <UnitItem
-              key={unit.id}
-              id={unit.id}
-              name={unit.name}
-            />
-          );
-        })}
+        {
+          unitList
+            .filter(unit => matchQuery(unit, deferredSearchText))
+            .map(unit => {
+              return (
+                <UnitItem
+                  key={unit.id}
+                  id={unit.id}
+                  name={unit.name}
+                />
+              );
+            })
+        }
       </UnitListWrapper>
     </section>
   );

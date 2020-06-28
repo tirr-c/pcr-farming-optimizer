@@ -5,6 +5,7 @@ import RemoteResource from '../utils/RemoteResource';
 export interface Unit {
   id: string;
   name: string;
+  search: string;
   equips: string[][];
 }
 
@@ -25,6 +26,7 @@ export function loadUnits(region: string): RemoteResource<Map<string, Unit>> {
 type OrderUnitsBy =
   | 'id'
   | 'name'
+  | 'search'
 ;
 
 type OrderUnitsDirection = 'asc' | 'desc';
@@ -48,13 +50,18 @@ export function orderUnits<UnitType extends Unit>(
         valueA = a.name;
         valueB = b.name;
         break;
+      case 'search':
+        valueA = a.search;
+        valueB = b.search;
+        break;
       default:
         valueA = a.id;
         valueB = b.id;
         break;
     }
     if (valueA === valueB) {
-      return 0;
+      const val = Number(a.id) - Number(b.id);
+      return orderDirection === 'asc' ? val : -val;
     }
     if (valueA > valueB) {
       return orderDirection === 'asc' ? 1 : -1;
@@ -70,4 +77,8 @@ export function getEquipsForRank(
   units: Map<string, Unit>,
 ): string[] | null {
   return units.get(id)?.equips[rank - 1] || null;
+}
+
+export function matchQuery(unit: Unit, query: string): boolean {
+  return unit.search.startsWith(query);
 }

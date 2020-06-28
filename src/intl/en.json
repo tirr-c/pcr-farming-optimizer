@@ -12,7 +12,8 @@
     "quest-info": "Loading quest info..."
   },
   "characters": {
-    "title": "Characters"
+    "title": "Characters",
+    "search": "Search by name..."
   },
   "rank-equipments": {
     "title": "Rank & Equipments",

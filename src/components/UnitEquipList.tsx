@@ -53,7 +53,7 @@ export default function UnitEquipList() {
       })
       .filter(data => data != null) as
         (UnitData & { unitState: Instance<typeof UnitState> })[];
-    const sortedUnitData = orderUnits(unitDataAndState, { orderBy: 'name' });
+    const sortedUnitData = orderUnits(unitDataAndState, { orderBy: 'search' });
     return sortedUnitData
       .map(({ id, unitState }) => ({
         id,
