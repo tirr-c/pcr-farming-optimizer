@@ -84,7 +84,8 @@ export interface QuestMaps {
 export function loadQuests(region: string): RemoteResource<QuestMaps> {
   return new RemoteResource<QuestMaps>(async () => {
     const resp = await fetch(withPrefix(`/data/${region}/quest.json`));
-    const questData: Quest[] = (await resp.json()).$data;
+    const questData = ((await resp.json()).$data as Quest[])
+      .filter(quest => ['1', '2', '3'].includes(quest.id[1]));
     const idQuestMap = new Map(questData.map(quest => [quest.id, quest]));
     const equipQuestMap = new Map<string, string[]>();
     for (const quest of questData) {
