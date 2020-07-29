@@ -92,6 +92,13 @@ export default function Layout(props: Props) {
   `);
   const { availableRegions } = queryResult.site.siteMetadata;
 
+  const [embedded, setEmbedded] = React.useState(false);
+  const embeddedAnchorProps = embedded ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+
+  React.useEffect(() => {
+    setEmbedded(window.parent !== window);
+  }, []);
+
   const intl = useIntl();
   const defaultTitle: string = intl.formatMessage({ id: 'title' });
   const title = props.title ? `${props.title} - ${defaultTitle}` : defaultTitle;
@@ -102,15 +109,20 @@ export default function Layout(props: Props) {
         <cite>{intl.formatMessage({ id: 'fansite-notice.cite' })}</cite>
       ),
       link: (
-        <a href="https://priconne-redive.jp">
+        <a href="https://priconne-redive.jp" {...embeddedAnchorProps}>
           {intl.formatMessage({ id: 'fansite-notice.link' })}
         </a>
       ),
     },
   );
   const sourceCode = (
-    <a href="https://github.com/tirr-c/pcr-farming-optimizer">
+    <a href="https://github.com/tirr-c/pcr-farming-optimizer" {...embeddedAnchorProps}>
       {intl.formatMessage({ id: 'source-code' })}
+    </a>
+  );
+  const openInNewWindow = (
+    <a href="." {...embeddedAnchorProps}>
+      {intl.formatMessage({ id: 'open-in-new-window' })}
     </a>
   );
   const regions: { locale: string; display: string }[] = availableRegions.map(({ region, locale }: any) => {
@@ -144,7 +156,15 @@ export default function Layout(props: Props) {
       </React.Suspense>
       <Footer>
         <p>{fansiteNotice}</p>
-        <p>{sourceCode}</p>
+        <p>
+          {embedded && (
+            <>
+              {openInNewWindow}
+              {' '}
+            </>
+          )}
+          {sourceCode}
+        </p>
       </Footer>
     </Ui>
   );
