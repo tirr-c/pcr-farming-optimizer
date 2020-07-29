@@ -108,6 +108,11 @@ export default function Layout(props: Props) {
       ),
     },
   );
+  const sourceCode = (
+    <a href="https://github.com/tirr-c/pcr-farming-optimizer">
+      {intl.formatMessage({ id: 'source-code' })}
+    </a>
+  );
   const regions: { locale: string; display: string }[] = availableRegions.map(({ region, locale }: any) => {
     const regionText = intl.formatDisplayName(region.toUpperCase(), { type: 'region', style: 'short' });
     const languageText = intl.formatDisplayName(locale, { type: 'language', style: 'short' });
@@ -139,6 +144,7 @@ export default function Layout(props: Props) {
       </React.Suspense>
       <Footer>
         <p>{fansiteNotice}</p>
+        <p>{sourceCode}</p>
       </Footer>
     </Ui>
   );
