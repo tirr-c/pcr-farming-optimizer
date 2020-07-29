@@ -16,6 +16,6 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        REGION: ${{ secrets.BUCKET_REGION }}
+        AWS_REGION: ${{ secrets.BUCKET_REGION }}
         BUCKET: ${{ secrets.BUCKET_NAME }}
       run: ./deploy-data.sh
