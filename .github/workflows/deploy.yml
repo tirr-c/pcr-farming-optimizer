@@ -12,8 +12,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Deploy
       env:
-        AWS_ACCESS_KEY_ID: ${{ secret.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secret.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: ${{ secret.BUCKET_REGION }}
-        BUCKET: ${{ secret.BUCKET_NAME }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: ${{ secrets.BUCKET_REGION }}
+        BUCKET: ${{ secrets.BUCKET_NAME }}
       run: ./deploy.sh
