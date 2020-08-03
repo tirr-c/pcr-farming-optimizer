@@ -9,10 +9,10 @@
     "@formatjs/intl-displaynames": "^2.2.6",
     "@yarnpkg/pnpify": "2.0.0-rc.25",
     "astroturf": "^0.10.4",
-    "gatsby": "^2.24.12",
+    "gatsby": "^2.24.27",
     "gatsby-plugin-astroturf": "^0.2.1",
     "gatsby-plugin-intl": "^0.3.3",
-    "gatsby-plugin-offline": "^3.2.11",
+    "gatsby-plugin-offline": "^3.2.21",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-typescript": "^2.4.16",
@@ -29,6 +29,12 @@
   "devDependencies": {
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
-    "@types/react-helmet": "^6.0.0"
+    "@types/react-helmet": "^6.0.0",
+    "gatsby-cli": "^2.12.72"
+  },
+  "dependenciesMeta": {
+    "gatsby-cli": {
+      "unplugged": true
+    }
   }
 }
