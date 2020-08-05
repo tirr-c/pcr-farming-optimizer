@@ -2,6 +2,7 @@ import styled from 'astroturf';
 import React from 'react';
 
 import Icon from './Icon';
+import Picture from './Picture';
 
 const Wrapper = styled('label')<{ size: 'medium' | 'large' | 'xlarge' }>`
   width: 100%;
@@ -49,13 +50,17 @@ export default function UnitIcon(props: Props) {
   const rarityFactor = [, 1, 1, 3, 3, 3, 6][rarity] ?? 1;
   const iconId = String(Number(unitId) + rarityFactor * 10).padStart(6, '0');
   const src = new URL(`/icons/unit/${iconId}.png`, 'https://ames-static.tirr.dev');
+  const srcWebp = new URL(`/icons/unit/${iconId}.webp`, 'https://ames-static.tirr.dev');
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.checked);
   }, [onChange]);
   return (
     <Wrapper size={size}>
-      <Icon size={size} alt={name} src={src.toString()} />
+      <Picture>
+        <source srcSet={srcWebp.toString()} type="image/webp" />
+        <Icon size={size} alt={name} src={src.toString()} />
+      </Picture>
       <input type="checkbox" checked={active} onChange={handleChange} />
     </Wrapper>
   );

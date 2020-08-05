@@ -2,6 +2,7 @@ import styled, { css } from 'astroturf';
 import React from 'react';
 
 import Icon from './Icon';
+import Picture from './Picture';
 
 interface WrapperProps {
   size: 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
@@ -81,7 +82,9 @@ interface Props {
 export default function EquipIcon(props: Props) {
   const { id, name, size, active, dimInactive, onChange, children } = props;
   const activeSrc = new URL(`/icons/equipment/${id}.png`, 'https://ames-static.tirr.dev');
+  const activeSrcWebp = new URL(`/icons/equipment/${id}.webp`, 'https://ames-static.tirr.dev');
   const inactiveSrc = new URL(`/icons/equipment/invalid/${id}.png`, 'https://ames-static.tirr.dev');
+  const inactiveSrcWebp = new URL(`/icons/equipment/invalid/${id}.webp`, 'https://ames-static.tirr.dev');
   const showActive = dimInactive ? true : Boolean(active);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,22 +92,26 @@ export default function EquipIcon(props: Props) {
   }, [onChange]);
   return (
     <Wrapper size={size} dimInactive={dimInactive}>
-      <Icon
-        key={`${id}-active`}
-        size={size}
-        alt={name}
-        src={activeSrc.toString()}
-        style={{opacity: showActive ? 1 : 0}}
-      />
-      {!dimInactive && (
+      <Picture key={`${id}-active`}>
+        <source srcSet={activeSrcWebp.toString()} type="image/webp" />
         <Icon
-          key={`${id}-inactive`}
           size={size}
           alt={name}
-          src={inactiveSrc.toString()}
-          className={styles.inactiveIcon}
-          style={{ opacity: showActive ? 0 : 1 }}
+          src={activeSrc.toString()}
+          style={{opacity: showActive ? 1 : 0}}
         />
+      </Picture>
+      {!dimInactive && (
+        <Picture key={`${id}-inactive`}>
+          <source srcSet={inactiveSrcWebp.toString()} type="image/webp" />
+          <Icon
+            size={size}
+            alt={name}
+            src={inactiveSrc.toString()}
+            className={styles.inactiveIcon}
+            style={{ opacity: showActive ? 0 : 1 }}
+          />
+        </Picture>
       )}
       <Addon size={size}>{children}</Addon>
       <input type="checkbox" checked={active} onChange={handleChange} />
