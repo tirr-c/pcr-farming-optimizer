@@ -7,6 +7,7 @@ import React from 'react';
 import { getEquipsForRank } from '../resources/units';
 import Unit from '../state/unit';
 
+import Dropdown from './Dropdown';
 import EquipIcon from './EquipIcon';
 import UnitIcon from './UnitIcon';
 import { useResource } from './Wrapper';
@@ -39,50 +40,8 @@ const EquipGridLabel = styled('div')`
   font-size: 14px;
 `;
 
-const RankSelectorWrapper = styled('label')`
+const RankSelector = styled(Dropdown)`
   grid-area: auto / span 2;
-  display: flex;
-  align-items: center;
-  margin-bottom: 4px;
-  padding: 4px;
-  border: 1px solid black;
-  border-radius: 4px;
-
-  &:focus-within {
-    outline: 1px dotted #212121;
-    outline: auto -webkit-focus-ring-color;
-  }
-
-  &::after {
-    flex: none;
-    display: block;
-    box-sizing: border-box;
-    content: '';
-    width: 8px;
-    height: 8px;
-    margin: 0 4px 2px;
-    border: solid black;
-    border-width: 0 2px 2px 0;
-
-    transform: rotate(45deg);
-    transform-origin: 75% 75%;
-  }
-`;
-
-const RankSelector = styled('select')`
-  flex: 1;
-  display: block;
-  appearance: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  font-family: inherit;
-  font-size: 0.9em;
-  -webkit-tap-highlight-color: rgba(black, 0);
-
-  &:focus, &:active {
-    outline: none;
-  }
 `;
 
 interface Props {
@@ -113,12 +72,12 @@ export default function UnitEquips(props: Props) {
     }));
     return [unit.rankTo, data];
   });
-  const handleRankFromChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newRank = Number(e.target.value);
+  const handleRankFromChange = React.useCallback((value: string) => {
+    const newRank = Number(value);
     unit.setRankFrom(newRank);
   }, [unit]);
-  const handleRankToChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newRank = Number(e.target.value);
+  const handleRankToChange = React.useCallback((value: string) => {
+    const newRank = Number(value);
     unit.setRankTo(newRank);
   }, [unit]);
   const rankOptions = Array(availableRanks).fill(null).map((_, idx) => (
@@ -133,11 +92,9 @@ export default function UnitEquips(props: Props) {
         <EquipGridLabel>
           {intl.formatMessage({ id: 'rank-equipments.from' })}
         </EquipGridLabel>
-        <RankSelectorWrapper>
-          <RankSelector value={String(rankFrom)} onChange={handleRankFromChange}>
-            {rankOptions}
-          </RankSelector>
-        </RankSelectorWrapper>
+        <RankSelector value={String(rankFrom)} onChange={handleRankFromChange}>
+          {rankOptions}
+        </RankSelector>
         {equipDataFrom.map(({id, active}, idx) => (
           <EquipIcon
             key={idx}
@@ -153,11 +110,9 @@ export default function UnitEquips(props: Props) {
         <EquipGridLabel>
           {intl.formatMessage({ id: 'rank-equipments.to' })}
         </EquipGridLabel>
-        <RankSelectorWrapper>
-          <RankSelector value={String(rankTo)} onChange={handleRankToChange}>
-            {rankOptions}
-          </RankSelector>
-        </RankSelectorWrapper>
+        <RankSelector value={String(rankTo)} onChange={handleRankToChange}>
+          {rankOptions}
+        </RankSelector>
         {equipDataTo.map(({id, active}, idx) => (
           <EquipIcon
             key={idx}
