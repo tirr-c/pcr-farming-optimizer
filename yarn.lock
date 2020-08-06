@@ -7759,9 +7759,6 @@ __metadata:
     react-helmet: ^6.1.0
     regenerator-runtime: ^0.13.7
     typescript: ^3.9.7
-  dependenciesMeta:
-    gatsby-cli:
-      unplugged: true
   languageName: unknown
   linkType: soft
 

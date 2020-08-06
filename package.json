@@ -31,10 +31,5 @@
     "@types/react-dom": "^16.9.7",
     "@types/react-helmet": "^6.0.0",
     "gatsby-cli": "^2.12.72"
-  },
-  "dependenciesMeta": {
-    "gatsby-cli": {
-      "unplugged": true
-    }
   }
 }
