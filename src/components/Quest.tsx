@@ -43,6 +43,10 @@ const DropGroup = styled('div')`
   }
 `;
 
+const ExtraReward = styled('div')`
+  flex: none;
+`;
+
 interface Props {
   id: string;
   score?: number;
@@ -153,6 +157,9 @@ export default function Quest(props: Props) {
             ))}
           </React.Fragment>
         ))}
+        {Boolean(quest.extra_reward_count) && (
+          <ExtraReward>{`(+${quest.extra_reward_count})`}</ExtraReward>
+        )}
       </Drops>
     </li>
   );

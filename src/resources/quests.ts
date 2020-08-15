@@ -6,6 +6,7 @@ export interface Quest {
   id: string;
   name: string;
   stamina: number;
+  extra_reward_count?: number;
   wave_groups: WaveGroup[];
 }
 
@@ -110,7 +111,8 @@ export function loadQuests(region: string): RemoteResource<QuestMaps> {
 
 function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>) {
   const dropData = calculateDrops(quest);
-  return dropData
+  const extraScore = (quest.extra_reward_count ?? 0) * 50;
+  const mainScore = dropData
     .map(dropGroup => {
       const scores = dropGroup.map(drop => {
         if (drop.reward.type !== 'equipment') {
@@ -133,7 +135,8 @@ function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>) {
       const sumCount = scores.reduce((a, b) => a + b.count, 0);
       return sumOdds * sumCount / count;
     })
-    .reduce((a, b) => a + b, 0) / quest.stamina;
+    .reduce((a, b) => a + b, 0);
+  return (mainScore + extraScore) / quest.stamina;
 }
 
 export interface Multipliers {
