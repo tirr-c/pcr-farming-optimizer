@@ -5213,6 +5213,177 @@
       }
     },
     {
+      "id": "106011",
+      "name": "輝光剣アダマス",
+      "description": "原初の金剛石を削り鍛えられたと伝\\n説に伝わる宝石剣。幾星霜の時を経\\nても変わらぬ光を放ち続け、永世折\\nれずにその輝きで魔を祓う。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126011",
+            "count": 20
+          },
+          {
+            "id": "105102",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106041",
+      "name": "紅玉刀スカーレットムーン",
+      "description": "紅玉の結晶を研ぎ作られた魔性を宿\\nす妖刀。赤い三日月状の刀身は血に\\n飢えており、生命を持つ全ての生物\\nを斬り裂く抜群の切れ味を誇る。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "116041",
+            "count": 30
+          },
+          {
+            "id": "105042",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106071",
+      "name": "翠風刃エメラルドエッジ",
+      "description": "風を司る妖精王の力を宿した翠玉の\\n宝石剣。風の妖精たちを従えられる\\n権能を持ち、彼らが巻き起こす疾風\\nはあらゆる邪悪を吹き飛ばす。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "116071",
+            "count": 30
+          },
+          {
+            "id": "105071",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106101",
+      "name": "オパルスパージフィスト",
+      "description": "神の力を宿すという宝石、希望を司\\nるオパールがあしらわれた拳具。希\\n望の光を放つ拳は、あらゆる魔を葬\\nり、人々を絶望から救うという。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126101",
+            "count": 20
+          },
+          {
+            "id": "105222",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106131",
+      "name": "蒼神弓マーシーサピロス",
+      "description": "神が人に授けた霊石、サファイアで\\n作られし神弓。慈愛を司るとされ、\\n放たれる蒼き輝きを纏いし矢は人々\\nを邪へと堕とす魔神をも退ける。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "116131",
+            "count": 30
+          },
+          {
+            "id": "105582",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106161",
+      "name": "クリスタロススパイク",
+      "description": "神の力が結晶化した水晶の槍。神聖\\nなる力を宿しており、聖光を放つ一\\n撃は不死の王をも消滅させたことか\\nら、浄化を司る槍とも呼ばれる。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126161",
+            "count": 20
+          },
+          {
+            "id": "105161",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106191",
+      "name": "黄銅の裂戦斧",
+      "description": "英雄譚に名を刻む豪胆な戦神が生涯\\nの相棒とした大戦斧。黄金に似て非\\nなる雷光の輝きは、畏怖の象徴とし\\nて戦場にその名を轟かせたという。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "116191",
+            "count": 30
+          },
+          {
+            "id": "105041",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106221",
+      "name": "黒真珠の闇獄杖",
+      "description": "冥府の黒き女王が死者の霊魂を導く\\nために用いたとされる杖。黒き宝珠\\nから吹き荒れる冥界の風は禁呪や神\\nの奇跡でさえも等しく虚無へ帰す。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126221",
+            "count": 20
+          },
+          {
+            "id": "105132",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106251",
+      "name": "白真珠の光天杖",
+      "description": "天上の白き女神が生命の始まりを祝\\n福して授けたとされる杖。宝珠に満\\nちる聖光は万病を癒し、悪鬼邪神の\\n呪いすら打ち払うとされる。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126251",
+            "count": 20
+          },
+          {
+            "id": "105192",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
       "id": "113011",
       "name": "煌めきの剣（欠片）",
       "description": "「煌めきの剣」の欠片。",
@@ -6071,6 +6242,34 @@
       "name": "蒼夜のノクターンブローチ（欠片）",
       "description": "「蒼夜のノクターンブローチ」の欠片。",
       "promotion_level": "purple",
+      "craft": null
+    },
+    {
+      "id": "116041",
+      "name": "紅玉刀スカーレットムーン（欠片）",
+      "description": "「紅玉刀スカーレットムーン」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116071",
+      "name": "翠風刃エメラルドエッジ（欠片）",
+      "description": "「翠風刃エメラルドエッジ」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116131",
+      "name": "蒼神弓マーシーサピロス（欠片）",
+      "description": "「蒼神弓マーシーサピロス」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116191",
+      "name": "黄銅の裂戦斧（欠片）",
+      "description": "「黄銅の裂戦斧」の欠片。",
+      "promotion_level": "red",
       "craft": null
     },
     {
@@ -7016,6 +7215,41 @@
       "name": "極翼天の賢聖帽の設計図",
       "description": "「極翼天の賢聖帽」の設計図。",
       "promotion_level": "purple",
+      "craft": null
+    },
+    {
+      "id": "126011",
+      "name": "輝光剣アダマスの設計図",
+      "description": "「輝光剣アダマス」の設計図。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "126101",
+      "name": "オパルスパージフィストの設計図",
+      "description": "「オパルスパージフィスト」の設計図。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "126161",
+      "name": "クリスタロススパイクの設計図",
+      "description": "「クリスタロススパイク」の設計図。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "126221",
+      "name": "黒真珠の闇獄杖の設計図",
+      "description": "「黒真珠の闇獄杖」の設計図。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "126251",
+      "name": "白真珠の光天杖の設計図",
+      "description": "「白真珠の光天杖」の設計図。",
+      "promotion_level": "red",
       "craft": null
     },
     {
