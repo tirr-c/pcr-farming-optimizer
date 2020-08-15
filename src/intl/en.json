@@ -35,5 +35,16 @@
     "nm": "Normal",
     "hd": "Hard",
     "vh": "Very Hard"
+  },
+  "state": {
+    "title": "Manage State",
+    "go-back": "Go back",
+    "save": {
+      "title": "Save",
+      "download": "Save as file"
+    },
+    "load": {
+      "title": "Load"
+    }
   }
 }
