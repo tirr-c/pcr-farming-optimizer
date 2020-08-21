@@ -109,8 +109,21 @@ export function loadQuests(region: string): RemoteResource<QuestMaps> {
   });
 }
 
-function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>) {
+interface ScoreQuestResult {
+  score: number;
+  equipmentsFound: string[];
+}
+
+function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>): ScoreQuestResult {
   const dropData = calculateDrops(quest);
+  const equipmentsFound = [...new Set(
+    dropData.flatMap(dropGroup => (
+      dropGroup
+        .map(drop => drop.reward.type === 'equipment' ? drop.reward.id : null)
+        .filter(x => x != null) as string[]
+    ))
+  )].filter(id => equipmentIdMap.has(id));
+
   const extraScore = (quest.extra_reward_count ?? 0) * 50;
   const mainScore = dropData
     .map(dropGroup => {
@@ -136,7 +149,10 @@ function scoreQuest(quest: Quest, equipmentIdMap: Map<string, number>) {
       return sumOdds * sumCount / count;
     })
     .reduce((a, b) => a + b, 0);
-  return (mainScore + extraScore) / quest.stamina;
+  return {
+    score: (mainScore + extraScore) / quest.stamina,
+    equipmentsFound,
+  };
 }
 
 export interface Multipliers {
@@ -150,10 +166,20 @@ export interface RankQuestsOptions {
   multipliers?: Multipliers;
 }
 
+export interface QuestScore {
+  id: string;
+  score: number;
+}
+
+export interface RankQuestsResult {
+  featured: QuestScore[];
+  rest: QuestScore[];
+}
+
 export function rankQuests(
   equipmentIdMap: Map<string, number>,
   options: RankQuestsOptions,
-): { id: string; score: number }[] {
+): RankQuestsResult {
   let questMaps = options.questMaps;
   const {
     normal: normalMultiplier = 1,
@@ -172,13 +198,15 @@ export function rankQuests(
       return {
         id,
         score: 0,
+        equipmentsFound: [],
       };
     }
-    const score = scoreQuest(quest, equipmentIdMap);
+    const { score, equipmentsFound } = scoreQuest(quest, equipmentIdMap);
     const multiplier = [, normalMultiplier, hardMultiplier, veryHardMultiplier][Number(id[1])] || 1;
     return {
       id,
       score: score * multiplier,
+      equipmentsFound,
     };
   });
   scoredQuests.sort((a, b) => {
@@ -187,5 +215,29 @@ export function rankQuests(
     }
     return a.id < b.id ? -1 : a.id === b.id ? 0 : 1;
   });
-  return scoredQuests;
+
+  const featuredQuests = [];
+  const restQuests = [];
+  const equipments = new Set();
+  for (const quest of scoredQuests) {
+    if (quest.equipmentsFound.every(id => equipments.has(id))) {
+      restQuests.push({
+        id: quest.id,
+        score: quest.score,
+      });
+    } else {
+      featuredQuests.push({
+        id: quest.id,
+        score: quest.score,
+      });
+      for (const id of quest.equipmentsFound) {
+        equipments.add(id);
+      }
+    }
+  }
+
+  return {
+    featured: featuredQuests,
+    rest: restQuests,
+  }
 }

@@ -71,6 +71,8 @@ export default function QuestList() {
     () => rankQuests(equipmentIdMap, { questMaps, multipliers }),
     [equipmentIdMap, questMaps, multipliers],
   );
+  const featuredQuests = quests.featured;
+  const restQuests = quests.rest;
 
   const handleLoadMore = React.useCallback(() => {
     setLimit(limit => limit + 5);
@@ -108,11 +110,19 @@ export default function QuestList() {
         ))}
       </OptionsList>
       <List pending={pending}>
-        {quests.slice(0, limit).map(({ id, score }) => (
+        {featuredQuests.slice(0, limit).map(({ id, score }) => (
           <Quest key={id} id={id} score={score} />
         ))}
+        {featuredQuests.length < limit && (
+          <>
+            <hr />
+            {restQuests.slice(0, limit - featuredQuests.length).map(({ id, score }) => (
+              <Quest key={id} id={id} score={score} />
+            ))}
+          </>
+        )}
       </List>
-      {quests.length > limit && (
+      {featuredQuests.length + restQuests.length > limit && (
         <LoadMore type="button" onClick={handleLoadMore}>
           {intl.formatMessage({ id: 'recommended-quests.load-more' })}
         </LoadMore>
