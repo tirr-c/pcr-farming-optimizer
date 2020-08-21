@@ -9,14 +9,14 @@
     "@formatjs/intl-displaynames": "^2.2.6",
     "@yarnpkg/pnpify": "2.0.0-rc.25",
     "astroturf": "^0.10.4",
-    "gatsby": "^2.24.27",
+    "gatsby": "^2.24.47",
     "gatsby-plugin-astroturf": "^0.2.1",
     "gatsby-plugin-intl": "^0.3.3",
-    "gatsby-plugin-offline": "^3.2.21",
+    "gatsby-plugin-offline": "^3.2.23",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sass": "^2.3.12",
-    "gatsby-plugin-typescript": "^2.4.16",
-    "mobx": "^5.15.4",
+    "gatsby-plugin-typescript": "^2.4.18",
+    "mobx": "^5.15.6",
     "mobx-react-lite": "^2.0.7",
     "mobx-state-tree": "^3.17.2",
     "node-sass": "^4.14.1",
@@ -24,12 +24,12 @@
     "react-dom": "experimental",
     "react-helmet": "^6.1.0",
     "regenerator-runtime": "^0.13.7",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   },
   "devDependencies": {
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "@types/react-helmet": "^6.0.0",
-    "gatsby-cli": "^2.12.72"
+    "gatsby-cli": "^2.12.87"
   }
 }
