@@ -5384,6 +5384,51 @@
       }
     },
     {
+      "id": "106551",
+      "name": "神紅輪ルビーローズ",
+      "description": "情熱を司るルビーの薔薇が施された\\n指輪。戦神の力を宿しており、万の\\n軍勢を薙ぎ払う絶対的な力と、邪神\\nの恐怖すら振り払う勇気を授ける。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 50000,
+        "ingredients": [
+          {
+            "id": "116551",
+            "count": 30
+          }
+        ]
+      }
+    },
+    {
+      "id": "106581",
+      "name": "常盤の緑環",
+      "description": "古き神樹の園の緑葉を象った指輪。\\n常盤の緑葉が如きエメラルドの輝き\\nは身に着けた者へ無窮の旅路を支え\\nる幸運と強健の加護を授ける。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 50000,
+        "ingredients": [
+          {
+            "id": "116581",
+            "count": 30
+          }
+        ]
+      }
+    },
+    {
+      "id": "106611",
+      "name": "白聖石ダイヤモンドスター",
+      "description": "光の精霊が盟約の証として授けた金\\n剛石の指輪。尽きぬ輝きは無尽蔵の\\n魔力に由来し、新たな星を作れる程\\nの力を秘めているという。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 50000,
+        "ingredients": [
+          {
+            "id": "116611",
+            "count": 30
+          }
+        ]
+      }
+    },
+    {
       "id": "113011",
       "name": "煌めきの剣（欠片）",
       "description": "「煌めきの剣」の欠片。",
@@ -6269,6 +6314,27 @@
       "id": "116191",
       "name": "黄銅の裂戦斧（欠片）",
       "description": "「黄銅の裂戦斧」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116551",
+      "name": "神紅輪ルビーローズ（欠片）",
+      "description": "「神紅輪ルビーローズ」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116581",
+      "name": "常盤の緑環（欠片）",
+      "description": "「常盤の緑環」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116611",
+      "name": "白聖石ダイヤモンドスター（欠片）",
+      "description": "「白聖石ダイヤモンドスター」の欠片。",
       "promotion_level": "red",
       "craft": null
     },
