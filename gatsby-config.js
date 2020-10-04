@@ -33,11 +33,11 @@ module.exports = {
               handler: 'StaleWhileRevalidate',
             },
             {
-              urlPattern: /^https?:.*\page-data\/.*\/page-data\.json/,
+              urlPattern: /^https?:.*\/page-data\/.*\/page-data\.json/,
               handler: 'NetworkFirst',
             },
             {
-              urlPattern: /^https:\/\/ames-static\.tirr\.dev\/icons\//,
+              urlPattern: /^https:\/\/(?:ames-static|pcrdb)\.tirr\.dev\/icons\//,
               handler: 'CacheFirst',
               options: {
                 cacheName: 'icons',

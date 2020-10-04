@@ -81,10 +81,10 @@ interface Props {
 
 export default function EquipIcon(props: Props) {
   const { id, name, size, active, dimInactive, onChange, children } = props;
-  const activeSrc = new URL(`/icons/equipment/${id}.png`, 'https://ames-static.tirr.dev');
-  const activeSrcWebp = new URL(`/icons/equipment/${id}.webp`, 'https://ames-static.tirr.dev');
-  const inactiveSrc = new URL(`/icons/equipment/invalid/${id}.png`, 'https://ames-static.tirr.dev');
-  const inactiveSrcWebp = new URL(`/icons/equipment/invalid/${id}.webp`, 'https://ames-static.tirr.dev');
+  const activeSrc = new URL(`/icons/equipment/${id}.png`, 'https://pcrdb.tirr.dev');
+  const activeSrcWebp = new URL(`/icons/equipment/${id}.webp`, 'https://pcrdb.tirr.dev');
+  const inactiveSrc = new URL(`/icons/equipment/invalid/${id}.png`, 'https://pcrdb.tirr.dev');
+  const inactiveSrcWebp = new URL(`/icons/equipment/invalid/${id}.webp`, 'https://pcrdb.tirr.dev');
   const showActive = dimInactive ? true : Boolean(active);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

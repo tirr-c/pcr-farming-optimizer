@@ -128,7 +128,7 @@ export default function Quest(props: Props) {
           <Icon
             key={id}
             size="xxsmall"
-            src={new URL(`/icons/item/${id}.png`, 'https://ames-static.tirr.dev').toString()}
+            src={new URL(`/icons/item/${id}.png`, 'https://pcrdb.tirr.dev').toString()}
             alt=""
           />
         ))}

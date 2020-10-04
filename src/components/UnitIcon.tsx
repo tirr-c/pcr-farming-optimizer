@@ -49,8 +49,8 @@ export default function UnitIcon(props: Props) {
   const { unitId, name, rarity, size, active, onChange } = props;
   const rarityFactor = [, 1, 1, 3, 3, 3, 6][rarity] ?? 1;
   const iconId = String(Number(unitId) + rarityFactor * 10).padStart(6, '0');
-  const src = new URL(`/icons/unit/${iconId}.png`, 'https://ames-static.tirr.dev');
-  const srcWebp = new URL(`/icons/unit/${iconId}.webp`, 'https://ames-static.tirr.dev');
+  const src = new URL(`/icons/unit/${iconId}.png`, 'https://pcrdb.tirr.dev');
+  const srcWebp = new URL(`/icons/unit/${iconId}.webp`, 'https://pcrdb.tirr.dev');
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.checked);
