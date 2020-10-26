@@ -5384,6 +5384,120 @@
       }
     },
     {
+      "id": "106281",
+      "name": "白金の煌鱗鎧",
+      "description": "極めて純度の高い白金を聖火と霊峰\\nの清水で鍛えた礼装甲冑。繋ぎ合わ\\nされた白金片は白竜の鱗の如き煌き\\nを放ち纏う者を守護している。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126281",
+            "count": 20
+          },
+          {
+            "id": "105221",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106311",
+      "name": "金無垢の聖彫重甲",
+      "description": "精緻な細工が施された黄金の重鎧。\\n板金を彩る聖なる文様は立体の魔法\\n陣を構築しており装着者は重さを感\\nじず守護の恩恵を得られる。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "116311",
+            "count": 30
+          },
+          {
+            "id": "105611",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106341",
+      "name": "ピンクコーラルドレス",
+      "description": "果てなる海より稀に漂着する僅かな\\n珊瑚片を丹念に集め織り込んだドレ\\nス。海神の愛したその鮮やかな色は\\n纏う者を万難から遠ざけるという。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126341",
+            "count": 20
+          },
+          {
+            "id": "105552",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106371",
+      "name": "黒瑪瑙の祈装衣",
+      "description": "月明かりすら届かぬ地の奥から掘り\\n出された黒瑪瑙をちりばめた黒衣。\\n煌きの代わりに振りまかれる漆黒は\\nあらゆる危難から纏う者を隠す。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "126371",
+            "count": 20
+          },
+          {
+            "id": "105011",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106401",
+      "name": "アイオライトシールド",
+      "description": "巨大なアイオライトの結晶から作ら\\nれた円盾。その硬度は物理的なもの\\nから魔法的なものまであらゆる苦境\\nから装着者を護る。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "116401",
+            "count": 30
+          },
+          {
+            "id": "105251",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "106461",
+      "name": "ムーンクリスタルヒール",
+      "description": "妖精が女神のためにあつらえたとい\\nわれる靴。月の光を浴び続け自ら光\\nを放つようになった水晶を素材とし\\n光と共に踊るように災厄をかわす。",
+      "promotion_level": "red",
+      "craft": {
+        "cost": 60000,
+        "ingredients": [
+          {
+            "id": "116461",
+            "count": 30
+          },
+          {
+            "id": "105612",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
       "id": "106551",
       "name": "神紅輪ルビーローズ",
       "description": "情熱を司るルビーの薔薇が施された\\n指輪。戦神の力を宿しており、万の\\n軍勢を薙ぎ払う絶対的な力と、邪神\\nの恐怖すら振り払う勇気を授ける。",
@@ -6314,6 +6428,27 @@
       "id": "116191",
       "name": "黄銅の裂戦斧（欠片）",
       "description": "「黄銅の裂戦斧」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116311",
+      "name": "金無垢の聖彫重甲（欠片）",
+      "description": "「金無垢の聖彫重甲」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116401",
+      "name": "アイオライトシールド（欠片）",
+      "description": "「アイオライトシールド」の欠片。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "116461",
+      "name": "ムーンクリスタルヒール（欠片）",
+      "description": "「ムーンクリスタルヒール」の欠片。",
       "promotion_level": "red",
       "craft": null
     },
@@ -7315,6 +7450,27 @@
       "id": "126251",
       "name": "白真珠の光天杖の設計図",
       "description": "「白真珠の光天杖」の設計図。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "126281",
+      "name": "白金の煌鱗鎧の設計図",
+      "description": "「白金の煌鱗鎧」の設計図。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "126341",
+      "name": "ピンクコーラルドレスの設計図",
+      "description": "「ピンクコーラルドレス」の設計図。",
+      "promotion_level": "red",
+      "craft": null
+    },
+    {
+      "id": "126371",
+      "name": "黒瑪瑙の祈装衣の設計図",
+      "description": "「黒瑪瑙の祈装衣」の設計図。",
       "promotion_level": "red",
       "craft": null
     },
